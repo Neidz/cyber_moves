@@ -1,0 +1,6 @@
+.app {
+    background-color: var(--backgroundColor);
+    box-sizing: border-box;
+    padding: var(--paddingTopBottom) var(--paddingOnSides);
+    min-height: 100vh;
+}
