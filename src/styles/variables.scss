@@ -1,0 +1,10 @@
+* {
+    --textColor: white;
+    --backgroundColor: rgb(53, 53, 53);
+
+    // others values
+    --paddingOnSides: 2rem;
+    --paddingTopBottom: 1rem;
+    --navbarHeight: 3rem;
+    --usableFullHeight: calc(100vh - var(--navbarHeight) - (2 * var(--paddingTopBottom)));
+}
