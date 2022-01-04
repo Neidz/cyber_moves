@@ -11,6 +11,7 @@ export default function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder.geometry}
         material={nodes.Cylinder.material}
+        scale="15"
       />
     </group>
   )
