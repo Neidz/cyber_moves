@@ -1,0 +1,12 @@
+@use "../mixins.scss";
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: var(--navbarHeight);
+    gap: 1rem;
+    svg {
+        @include mixins.icon;
+    }
+}

@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+h1 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--textColor);
+}
+h2 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 3rem;
+    color: var(--textColor);
+}
+h3 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    color: var(--textColor);
+}
+h4,
+p,
+button,
+textarea,
+input {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    color: var(--textColor);
+}
+// disabling text-decoration on <Link/> elements
+a {
+    text-decoration: none;
+    color: inherit;
+}
