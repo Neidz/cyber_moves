@@ -9,4 +9,5 @@
     --paddingTopBottom: 1rem;
     --navbarHeight: 3rem;
     --usableFullHeight: calc(100vh - var(--navbarHeight) - (2 * var(--paddingTopBottom)));
+    --usableFullWidth: calc(100vw - (var(--paddingOnSides) * 2));
 }
