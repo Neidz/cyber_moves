@@ -18,7 +18,7 @@ interface controlPanelState {
 }
 
 const initialInputs: controlPanelInputs = {
-    input1: 0,
+    input1: 1,
     input2: 0,
     input3: 0,
     input4: 0,
@@ -38,10 +38,10 @@ export const controlPanelSlice = createSlice({
     name: "controlPanel",
     initialState,
     reducers: {
-        editInput: (state, action: PayloadAction<{ inputIndex: number; newValue: number }>) => {
-            if (action.payload.inputIndex > 0 && action.payload.inputIndex < 11) {
-                const inputEntry = "input" + action.payload.inputIndex;
-                state.controlPanelInputs[inputEntry as keyof controlPanelInputs] = action.payload.newValue;
+        editInput: (state, action: PayloadAction<[inputIndex: number, newValue: number]>) => {
+            if (action.payload[0] > 0 && action.payload[0] < 11) {
+                const inputEntry = "input" + action.payload[0];
+                state.controlPanelInputs[inputEntry as keyof controlPanelInputs] = action.payload[1];
             }
         },
     },
@@ -50,3 +50,5 @@ export const controlPanelSlice = createSlice({
 export const { editInput } = controlPanelSlice.actions;
 
 export default controlPanelSlice.reducer;
+
+export type { controlPanelInputs };

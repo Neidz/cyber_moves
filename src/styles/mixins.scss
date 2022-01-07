@@ -7,3 +7,12 @@
         color: var(--primaryColor);
     }
 }
+
+@mixin input1 {
+    background-color: var(--secondaryColor);
+    border: 2px solid var(--primaryColor);
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    
+}

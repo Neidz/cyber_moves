@@ -1,0 +1,20 @@
+@use "../mixins.scss";
+
+.controlPanel {
+    .controlPanelInputs {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .axisInput {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        h4 {
+            padding-left: 0.5rem;
+        }
+        input {
+            @include mixins.input1;
+        }
+    }
+}

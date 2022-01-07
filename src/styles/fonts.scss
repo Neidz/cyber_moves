@@ -29,6 +29,12 @@ input {
     font-size: 0.8rem;
     color: var(--textColor);
 }
+// disabling arrows on number inputs
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 // disabling text-decoration on <Link/> elements
 a {
     text-decoration: none;

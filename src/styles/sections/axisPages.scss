@@ -4,9 +4,14 @@
 .multipleAxis {
     width: var(--usableFullWidth);
     min-height: var(--usableFullHeight);
-    background-color: grey; //temp
-}
-.tempDiv {
-    padding: 1rem;
-    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    .mainRender {
+        width: 70%;
+    }
+    .controlPanel {
+        max-width: 30%;
+        box-sizing: border-box;
+        padding: 1rem;
+    }
 }

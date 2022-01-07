@@ -1,3 +1,5 @@
+// functions changing normal angles to radians
+
 export const toRadian = (angle: number) => {
     return angle * (Math.PI / 180);
 };
