@@ -1,7 +1,7 @@
 import "../styles/sections/controlPanel.scss";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { controlPanelInputs, editInput } from "../store/features/controlPanelSlice";
+import { anglesState, changeAngles } from "../store/features/anglesSlice";
 import { arrayFromNumber } from "../utils/arrayFromNumbe";
 import { RootState } from "../store/store";
 import { numberRegex } from "../utils/numberRegex";
@@ -13,7 +13,7 @@ interface controlPanelProps {
 export const ControlPanel = (props: controlPanelProps) => {
     const [amountofAxis] = useState<number>(typeof props.amountOfAxis === "number" ? props.amountOfAxis : 6);
     const dispatch = useDispatch();
-    const inputs = useSelector((state: RootState) => state.controlPanel.controlPanelInputs);
+    const angles = useSelector((state: RootState) => state.angles);
 
     return (
         <div className="controlPanel">
@@ -24,9 +24,9 @@ export const ControlPanel = (props: controlPanelProps) => {
                             <h4>{`axis${key}`}</h4>
                             <input
                                 type="text"
-                                defaultValue={inputs[`input${key}` as keyof controlPanelInputs]}
+                                defaultValue={angles[`angle${key}` as keyof anglesState]}
                                 onChange={(e) =>
-                                    numberRegex(e.target.value) && dispatch(editInput([key, parseInt(e.target.value)]))
+                                    numberRegex(e.target.value) && dispatch(changeAngles([key, parseInt(e.target.value)]))
                                 }
                             />
                         </div>

@@ -1,11 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import commandsReducer from "./features/commandsSlice";
-import controlPanelReducer from "./features/controlPanelSlice";
+import anglesReducer from "./features/anglesSlice";
+import devicesReducer from "./features/devicesSlice";
+import renderVisualsReducer from "./features/renderVisualsSlice";
 
 export const store = configureStore({
     reducer: {
         commands: commandsReducer,
-        controlPanel: controlPanelReducer,
+        angles: anglesReducer,
+        devices: devicesReducer,
+        renderVisuals: renderVisualsReducer,
     },
 });
 

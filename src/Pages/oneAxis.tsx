@@ -1,15 +1,15 @@
 import "../styles/sections/axisPages.scss";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
-import Test from "../jsxModels/test";
 import { toRadian } from "../utils/toRadian";
 import { ControlPanel } from "../components/controlPanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { SimpleAxis } from "../modelFiles/simpleAxis";
 
 export const OneAxis = () => {
-    const input1 = useSelector((state: RootState) => state.controlPanel.controlPanelInputs.input1);
+    const angle1 = useSelector((state: RootState) => state.angles.angle1);
 
     return (
         <div className="oneAxis">
@@ -19,7 +19,7 @@ export const OneAxis = () => {
                     <OrbitControls />
                     <Suspense fallback={null}>
                         {/* rotation takes angles in radians in form of list [x,z,y] */}
-                        <Test rotation={[0, toRadian(input1), 0]} />
+                        <SimpleAxis rotation={[0, toRadian(angle1), 0]} />
                     </Suspense>
                 </Canvas>
             </div>
