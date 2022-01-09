@@ -22,7 +22,7 @@ export const devicesSlice = createSlice({
     reducers: {
         changeDevices: (state, action: PayloadAction<[componentIndex: number, newState: boolean]>) => {
             if (action.payload[0] > 0 && action.payload[0] < 6) {
-                const deviceEntry = "device" + action.payload[0];
+                const deviceEntry = `device${action.payload[0]}`;
                 state[deviceEntry as keyof devicesState] = action.payload[1];
             } else {
                 console.log("wrong device number");

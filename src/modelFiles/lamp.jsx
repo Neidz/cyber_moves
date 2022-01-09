@@ -4,6 +4,10 @@ import { useGLTF } from "@react-three/drei";
 export const Lamp = (props) => {
   const group = useRef()
   const { nodes, materials } = useGLTF('/models/lamp.glb')
+
+  materials.defaultMaterial.emissive = props.baseColor;
+  materials.lightMaterial.emissive = props.lightColor;
+
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh

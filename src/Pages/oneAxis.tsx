@@ -7,9 +7,14 @@ import { ControlPanel } from "../components/controlPanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { SimpleAxis } from "../modelFiles/simpleAxis";
+import { Lamp } from "../modelFiles/lamp";
+import { Plane } from "../modelFiles/plane";
 
 export const OneAxis = () => {
     const angle1 = useSelector((state: RootState) => state.angles.angle1);
+    const referenceColor1 = useSelector((state: RootState) => state.renderVisuals.referenceColors.referenceColor1);
+    const baseColor = useSelector((state: RootState) => state.renderVisuals.baseColor);
+    const planeColor = useSelector((state: RootState) => state.renderVisuals.planeColor);
 
     return (
         <div className="oneAxis">
@@ -18,8 +23,13 @@ export const OneAxis = () => {
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
                     <Suspense fallback={null}>
-                        {/* rotation takes angles in radians in form of list [x,z,y] */}
-                        <SimpleAxis rotation={[0, toRadian(angle1), 0]} />
+                        <SimpleAxis
+                            rotation={[0, toRadian(angle1), 0]}
+                            referenceColor={referenceColor1}
+                            baseColor={baseColor}
+                        />
+                        <Lamp position={[2, 0, 2]} lightColor={referenceColor1} baseColor={baseColor} />
+                        <Plane position={[0, -3, 0]} planeColor={planeColor} />
                     </Suspense>
                 </Canvas>
             </div>

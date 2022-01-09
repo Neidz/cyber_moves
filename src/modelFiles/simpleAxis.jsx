@@ -1,10 +1,13 @@
-import { useRef } from 'react'
+import {  useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 
 export const SimpleAxis = (props) => {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/models/simpleAxis.glb')
+  const { nodes } = useGLTF('/models/simpleAxis.glb')
+  nodes.Cylinder001_1.material.emissive = props.referenceColor
+  nodes.Cylinder002_1.material.emissive = props.baseColor
+
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
