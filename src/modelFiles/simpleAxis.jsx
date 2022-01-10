@@ -1,12 +1,11 @@
 import {  useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { MeshBasicMaterial } from 'three'
 
 
 export const SimpleAxis = (props) => {
   const group = useRef()
   const { nodes } = useGLTF('/models/simpleAxis.glb')
-  nodes.Cylinder001_1.material.emissive = props.referenceColor
-  nodes.Cylinder002_1.material.emissive = props.baseColor
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -14,25 +13,25 @@ export const SimpleAxis = (props) => {
         castShadow
         receiveShadow
         geometry={nodes.Cylinder001.geometry}
-        material={nodes.Cylinder001.material}
+        material={new MeshBasicMaterial({color: props.baseColor})}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cylinder001_1.geometry}
-        material={nodes.Cylinder001_1.material}
+        material={new MeshBasicMaterial({color: props.referenceColor})}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cylinder002.geometry}
-        material={nodes.Cylinder002.material}
+        material={new MeshBasicMaterial({color: props.referenceColor})}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cylinder002_1.geometry}
-        material={nodes.Cylinder002_1.material}
+        material={new MeshBasicMaterial({color: props.baseColor})}
       />
     </group>
   )

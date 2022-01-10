@@ -1,12 +1,10 @@
 import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { MeshBasicMaterial } from "three";
 
 export const Lamp = (props) => {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/models/lamp.glb')
-
-  materials.defaultMaterial.emissive = props.baseColor;
-  materials.lightMaterial.emissive = props.lightColor;
+  const { nodes } = useGLTF('/models/lamp.glb')
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -14,13 +12,13 @@ export const Lamp = (props) => {
         castShadow
         receiveShadow
         geometry={nodes.Cylinder.geometry}
-        material={materials.lightMaterial}
+        material={new MeshBasicMaterial({color: props.lightColor})}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cylinder_1.geometry}
-        material={materials.defaultMaterial}
+        material={new MeshBasicMaterial({color: props.baseColor})}
       />
     </group>
   )

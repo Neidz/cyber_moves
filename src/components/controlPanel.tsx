@@ -1,5 +1,4 @@
 import "../styles/sections/controlPanel.scss";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { anglesState, changeAngles } from "../store/features/anglesSlice";
 import { arrayFromNumber } from "../utils/arrayFromNumber";
