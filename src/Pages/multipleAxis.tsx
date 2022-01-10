@@ -29,16 +29,18 @@ export const MultipleAxis = () => {
                 <Canvas>
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
+
                     <Suspense fallback={null}>
                         {arrayFromNumber(amountOfAxis).map((key: number) => {
                             console.log(calculateLayout(amountOfAxis, key, "axis"));
                             return (
                                 <SimpleAxis
                                     position={calculateLayout(amountOfAxis, key, "axis")}
-                                    rotation={[0, toRadian(angles[`angle${key}` as keyof anglesState]), 0]}
+                                    // rotation={[0, toRadian(angles[`angle${key}` as keyof anglesState]), 0]}
                                     referenceColor={referenceColors[`referenceColor${key}` as keyof referenceColorsState]}
                                     baseColor={baseColor}
                                     key={key}
+                                    smoothRotation={toRadian(angles[`angle${key}` as keyof anglesState])}
                                 />
                             );
                         })}

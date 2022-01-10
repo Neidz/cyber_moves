@@ -6,6 +6,7 @@ export const Lamp = (props) => {
   const group = useRef()
   const { nodes } = useGLTF('/models/lamp.glb')
 
+
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
