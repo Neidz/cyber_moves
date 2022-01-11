@@ -23,11 +23,7 @@ export const OneAxis = () => {
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
                     <Suspense fallback={null}>
-                        <SimpleAxis
-                            rotation={[0, toRadian(angle1), 0]}
-                            referenceColor={referenceColor1}
-                            baseColor={baseColor}
-                        />
+                        <SimpleAxis targetAngle={angle1} referenceColor={referenceColor1} baseColor={baseColor} />
                         <Lamp position={[2, 0, 2]} lightColor={referenceColor1} baseColor={baseColor} />
                         <Plane position={[0, -3, 0]} planeColor={planeColor} />
                     </Suspense>

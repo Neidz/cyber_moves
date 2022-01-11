@@ -42,7 +42,7 @@ const referenceColorsInitial = {
     referenceColor6: "rgb(0, 222, 222)",
     referenceColor7: "rgb(0, 26, 222)",
     referenceColor8: "rgb(112, 0, 222)",
-    referenceColor9: "rgb(234, 0, 222)",
+    referenceColor9: "rgb(214, 0, 222)",
     referenceColor10: "rgb(222, 0, 89)",
 };
 

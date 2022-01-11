@@ -11,7 +11,6 @@ import { deviceColorsState, referenceColorsState } from "../store/features/rende
 import { RootState } from "../store/store";
 import { arrayFromNumber } from "../utils/arrayFromNumber";
 import { calculateLayout } from "../utils/calculateLayout";
-import { toRadian } from "../utils/toRadian";
 
 export const MultipleAxis = () => {
     const [amountOfAxis, setAmountOfAxis] = useState<number>(10);
@@ -32,15 +31,13 @@ export const MultipleAxis = () => {
 
                     <Suspense fallback={null}>
                         {arrayFromNumber(amountOfAxis).map((key: number) => {
-                            console.log(calculateLayout(amountOfAxis, key, "axis"));
                             return (
                                 <SimpleAxis
                                     position={calculateLayout(amountOfAxis, key, "axis")}
-                                    // rotation={[0, toRadian(angles[`angle${key}` as keyof anglesState]), 0]}
                                     referenceColor={referenceColors[`referenceColor${key}` as keyof referenceColorsState]}
                                     baseColor={baseColor}
                                     key={key}
-                                    smoothRotation={toRadian(angles[`angle${key}` as keyof anglesState])}
+                                    targetAngle={angles[`angle${key}` as keyof anglesState]}
                                 />
                             );
                         })}
