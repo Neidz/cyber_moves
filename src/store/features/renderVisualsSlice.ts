@@ -24,6 +24,7 @@ interface renderVisualsState {
     deviceColors: deviceColorsState;
     planeColor: string;
     referenceColors: referenceColorsState;
+    activeColor: string;
 }
 
 const deviceColorsInitial = {
@@ -51,6 +52,7 @@ const initialState: renderVisualsState = {
     deviceColors: deviceColorsInitial,
     planeColor: "rgb(0, 0, 0)",
     referenceColors: referenceColorsInitial,
+    activeColor: "rgb(255, 255, 255)",
 };
 
 export const renderVisualsSlice = createSlice({

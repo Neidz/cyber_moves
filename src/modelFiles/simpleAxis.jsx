@@ -2,14 +2,13 @@ import {  useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { MeshBasicMaterial } from 'three'
 import { useFrame } from '@react-three/fiber'
-import { smoothRotation } from '../utils/smoothRotation'
+import { smoothRotation } from '../utils/renderMovement/smoothRotation'
 
 export const SimpleAxis = (props) => {
   const group = useRef()
   const { nodes } = useGLTF('/models/simpleAxis.glb')
 
   useFrame(()=> {smoothRotation(group, props.targetAngle)})
-
 
   return (
     <group ref={group} {...props} dispose={null}>

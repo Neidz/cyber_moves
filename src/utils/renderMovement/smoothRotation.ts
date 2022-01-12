@@ -1,4 +1,4 @@
-import { toRadian } from "./toRadian";
+import { toRadian } from "../toRadian";
 
 // used with useFrame rotates object from current angle to targetAngle by
 // amount of degrees specified in speed variable per second

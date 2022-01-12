@@ -31,6 +31,8 @@ export const anglesSlice = createSlice({
     initialState,
     reducers: {
         changeAngles: (state, action: PayloadAction<[angleIndex: number, newValue: number]>) => {
+            console.log(action.payload);
+            console.log(state.angle1);
             if (action.payload[0] > 0 && action.payload[0] < 11) {
                 const angleEntry = `angle${action.payload[0]}`;
                 state[angleEntry as keyof anglesState] = action.payload[1];
