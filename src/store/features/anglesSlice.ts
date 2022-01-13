@@ -31,8 +31,6 @@ export const anglesSlice = createSlice({
     initialState,
     reducers: {
         changeAngles: (state, action: PayloadAction<[angleIndex: number, newValue: number]>) => {
-            console.log(action.payload);
-            console.log(state.angle1);
             if (action.payload[0] > 0 && action.payload[0] < 11) {
                 const angleEntry = `angle${action.payload[0]}`;
                 state[angleEntry as keyof anglesState] = action.payload[1];
@@ -40,10 +38,18 @@ export const anglesSlice = createSlice({
                 console.log("wrong angle choosen");
             }
         },
+        addAngles: (state, action: PayloadAction<[angleIndex: number, addValue: number]>) => {
+            if (action.payload[0] > 0 && action.payload[0] < 11) {
+                const angleEntry = `angle${action.payload[0]}`;
+                state[angleEntry as keyof anglesState] = state[angleEntry as keyof anglesState] + action.payload[1];
+            } else {
+                console.log("wrong angle choosen");
+            }
+        },
     },
 });
 
-export const { changeAngles } = anglesSlice.actions;
+export const { changeAngles, addAngles } = anglesSlice.actions;
 
 export default anglesSlice.reducer;
 

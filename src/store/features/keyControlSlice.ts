@@ -9,7 +9,7 @@ interface keyControlState {
 const initialState: keyControlState = {
     isActive: false,
     whichActive: 1,
-    controlSpeed: 2,
+    controlSpeed: 5,
 };
 
 export const keyControlSlice = createSlice({

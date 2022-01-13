@@ -3,7 +3,7 @@ import commandsReducer from "./features/commandsSlice";
 import anglesReducer from "./features/anglesSlice";
 import devicesReducer from "./features/devicesSlice";
 import renderVisualsReducer from "./features/renderVisualsSlice";
-import keyControlReducer from "./features/keyControl";
+import keyControlReducer from "./features/keyControlSlice";
 
 export const store = configureStore({
     reducer: {

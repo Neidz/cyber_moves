@@ -1,6 +1,6 @@
 import "../styles/sections/axisPages.scss";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { ControlPanel } from "../components/controlPanel";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +8,7 @@ import { RootState } from "../store/store";
 import { SimpleAxis } from "../modelFiles/simpleAxis";
 import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
-import { moveWithArrows } from "../utils/renderMovement/moveWithArrows";
+import { handleMoveWithArrowsListener, moveWithArrows } from "../utils/renderMovement/moveWithArrows";
 
 export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
@@ -17,9 +17,24 @@ export const OneAxis = () => {
     const baseColor = useSelector((state: RootState) => state.renderVisuals.baseColor);
     const activeColor = useSelector((state: RootState) => state.renderVisuals.activeColor);
     const planeColor = useSelector((state: RootState) => state.renderVisuals.planeColor);
-    const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
+    const { isActive, whichActive, controlSpeed } = useSelector((state: RootState) => state.keyControl);
     const keyControl = useSelector((state: RootState) => state.keyControl);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (isActive) {
+            document.addEventListener("keydown", (e) =>
+                handleMoveWithArrowsListener(e, isActive, angles, whichActive, controlSpeed, dispatch)
+            );
+            return () => {
+                document.removeEventListener("keydown", (e) =>
+                    handleMoveWithArrowsListener(e, isActive, angles, whichActive, controlSpeed, dispatch)
+                );
+            };
+        } else {
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isActive]);
 
     return (
         <div className="oneAxis">
@@ -32,7 +47,7 @@ export const OneAxis = () => {
                             targetAngle={angle1}
                             referenceColor={referenceColor1}
                             baseColor={isActive && whichActive === 1 ? activeColor : baseColor}
-                            onClick={() => moveWithArrows(1, keyControl, angles, dispatch)}
+                            onClick={() => moveWithArrows(1, keyControl, dispatch)}
                         />
                         <Lamp position={[2, 0, 2]} lightColor={referenceColor1} baseColor={baseColor} />
                         <Plane position={[0, -3, 0]} planeColor={planeColor} />

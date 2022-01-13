@@ -22,7 +22,7 @@ export const ControlPanel = (props: controlPanelProps) => {
                             <h4>{`axis${key}`}</h4>
                             <input
                                 type="text"
-                                defaultValue={angles[`angle${key}` as keyof anglesState]}
+                                value={angles[`angle${key}` as keyof anglesState]}
                                 onChange={(e) =>
                                     numberRegex(e.target.value) && dispatch(changeAngles([key, parseInt(e.target.value)]))
                                 }
