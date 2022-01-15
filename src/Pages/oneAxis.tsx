@@ -12,7 +12,7 @@ import { useArrows } from "../hooks/useArrows";
 
 export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
-    const renderVisuals = useSelector((state: RootState) => state.renderVisuals);
+    const { referenceColors, baseColor, activeColor, planeColor } = useSelector((state: RootState) => state.renderVisuals);
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const changeTarget = useArrows();
 
@@ -25,16 +25,12 @@ export const OneAxis = () => {
                     <Suspense fallback={null}>
                         <SimpleAxis
                             targetAngle={angles.angle1}
-                            referenceColor={renderVisuals.referenceColors.referenceColor1}
-                            baseColor={isActive && whichActive === 1 ? renderVisuals.activeColor : renderVisuals.baseColor}
+                            referenceColor={referenceColors.referenceColor1}
+                            baseColor={isActive && whichActive === 1 ? activeColor : baseColor}
                             onClick={() => changeTarget(1)}
                         />
-                        <Lamp
-                            position={[2, 0, 2]}
-                            lightColor={renderVisuals.referenceColors.referenceColor1}
-                            baseColor={renderVisuals.baseColor}
-                        />
-                        <Plane position={[0, -3, 0]} planeColor={renderVisuals.planeColor} />
+                        <Lamp position={[2, 0, 2]} lightColor={referenceColors.referenceColor1} baseColor={baseColor} />
+                        <Plane position={[0, -3, 0]} planeColor={planeColor} />
                     </Suspense>
                 </Canvas>
             </div>

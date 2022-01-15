@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 import { useSelector } from "react-redux";
 import { ControlPanel } from "../components/controlPanel";
+import { useArrows } from "../hooks/useArrows";
 import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
 import { SimpleAxis } from "../modelFiles/simpleAxis";
@@ -17,10 +18,11 @@ export const MultipleAxis = () => {
     const [amountOfDevices, setAmountOfDevices] = useState<number>(5);
 
     const angles = useSelector((state: RootState) => state.angles);
-    const referenceColors = useSelector((state: RootState) => state.renderVisuals.referenceColors);
-    const deviceColors = useSelector((state: RootState) => state.renderVisuals.deviceColors);
-    const baseColor = useSelector((state: RootState) => state.renderVisuals.baseColor);
-    const planeColor = useSelector((state: RootState) => state.renderVisuals.planeColor);
+    const { referenceColors, baseColor, activeColor, planeColor, deviceColors } = useSelector(
+        (state: RootState) => state.renderVisuals
+    );
+    const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
+    const changeTarget = useArrows();
 
     return (
         <div className="multipleAxis">
@@ -35,9 +37,10 @@ export const MultipleAxis = () => {
                                 <SimpleAxis
                                     position={calculateLayout(amountOfAxis, key, "axis")}
                                     referenceColor={referenceColors[`referenceColor${key}` as keyof referenceColorsState]}
-                                    baseColor={baseColor}
+                                    baseColor={isActive && whichActive === key ? activeColor : baseColor}
                                     key={key}
                                     targetAngle={angles[`angle${key}` as keyof anglesState]}
+                                    onClick={() => changeTarget(key)}
                                 />
                             );
                         })}
