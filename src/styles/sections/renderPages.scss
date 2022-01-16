@@ -1,7 +1,6 @@
 .oneAxis,
-.twoAxis,
-.threeAxis,
-.multipleAxis {
+.multipleAxis,
+.robotArm3dof {
     width: var(--usableFullWidth);
     min-height: var(--usableFullHeight);
     display: flex;

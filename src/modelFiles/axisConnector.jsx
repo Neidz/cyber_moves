@@ -16,8 +16,8 @@ export const AxisConnector = (props) => {
         castShadow
         receiveShadow
         geometry={nodes.axisConnector.geometry}
-        material={new MeshBasicMaterial({color: 'props.baseColor'})}
-        position={[5.95, 2, 0]}
+        material={new MeshBasicMaterial({color: props.baseColor})}
+        position={[6, 0, 0]}
         scale="1"
       />
     </group>

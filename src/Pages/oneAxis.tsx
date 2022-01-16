@@ -1,4 +1,3 @@
-import "../styles/sections/axisPages.scss";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
