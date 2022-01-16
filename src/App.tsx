@@ -1,7 +1,7 @@
 import "./styles/app.scss";
 import "./styles/fonts.scss";
 import "./styles/variables.scss";
-import "./styles/sections/renderPages.scss";
+import "./styles/sections/mainContainer.scss";
 import { OneAxis } from "./Pages/oneAxis";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar";

@@ -2,6 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useSelector } from "react-redux";
 import { ControlPanel } from "../components/controlPanel";
+import { ControlTips } from "../components/controlTips";
 import { useArrows } from "../hooks/useArrows";
 import { Plane } from "../modelFiles/plane";
 import { RobotArm3dofModel } from "../modelFiles/robots/robotArm3dofModel";
@@ -15,8 +16,9 @@ export const RobotArm3dof = () => {
     const changeTarget = useArrows();
 
     return (
-        <div className="robotArm3dof">
+        <div className="mainContainer">
             <div className="mainRender">
+                <ControlTips />
                 <Canvas>
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />

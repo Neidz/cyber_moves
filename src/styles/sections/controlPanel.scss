@@ -1,9 +1,13 @@
 @use "../mixins.scss";
 
 .controlPanel {
+    max-width: 20vw;
+    box-sizing: border-box;
+    padding: 0.5rem;
     .controlPanelInputs {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 1rem;
         .axisInput {
             display: flex;

@@ -8,6 +8,7 @@ import { SimpleAxis } from "../modelFiles/simpleAxis";
 import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
 import { useArrows } from "../hooks/useArrows";
+import { ControlTips } from "../components/controlTips";
 
 export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
@@ -16,8 +17,9 @@ export const OneAxis = () => {
     const changeTarget = useArrows();
 
     return (
-        <div className="oneAxis">
+        <div className="mainContainer">
             <div className="mainRender">
+                <ControlTips />
                 <Canvas>
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />

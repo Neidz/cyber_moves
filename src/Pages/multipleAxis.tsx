@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 import { useSelector } from "react-redux";
 import { ControlPanel } from "../components/controlPanel";
+import { ControlTips } from "../components/controlTips";
 import { useArrows } from "../hooks/useArrows";
 import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
@@ -27,12 +28,12 @@ export const MultipleAxis = () => {
     const changeTarget = useArrows();
 
     return (
-        <div className="multipleAxis">
+        <div className="mainContainer">
             <div className="mainRender">
+                <ControlTips />
                 <Canvas>
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
-
                     <Suspense fallback={null}>
                         {arrayFromNumber(amountOfAxis).map((key: number) => {
                             return (

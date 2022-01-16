@@ -1,0 +1,11 @@
+.mainContainer {
+    width: var(--usableFullWidth);
+    min-height: var(--usableFullHeight);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .mainRender {
+        min-width: 60vw;
+        min-height: 80vh;
+    }
+}
