@@ -14,8 +14,6 @@ export const Navbar = () => {
         <div className="navbar">
             <HomeIcon onClick={() => navigate("/")} />
             <OneAxisIcon onClick={() => navigate("/oneAxis")} />
-            <TwoAxisIcon onClick={() => navigate("/twoAxis")} />
-            <ThreeAxisIcon onClick={() => navigate("/threeAxis")} />
             <MultipleAxisIcon onClick={() => navigate("/multipleAxis")} />
             <RobotArm3dof onClick={() => navigate("/robotArm3dof")} />
         </div>
