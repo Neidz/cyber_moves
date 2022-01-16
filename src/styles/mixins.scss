@@ -2,6 +2,7 @@
     color: var(--textCurrent);
     transition: 0.2s;
     width: calc(var(--navbarHeight) * 0.8);
+    max-height: calc(var(--navbarHeight) * 0.8);
     &:hover {
         cursor: pointer;
         color: var(--primaryColor);
@@ -14,5 +15,4 @@
     border-radius: 0.5rem;
     padding: 0.3rem 0.5rem;
     font-size: 1rem;
-    
 }

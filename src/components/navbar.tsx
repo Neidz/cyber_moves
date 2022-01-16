@@ -3,6 +3,7 @@ import { ReactComponent as OneAxisIcon } from "../assets/oneAxisIcon.svg";
 import { ReactComponent as TwoAxisIcon } from "../assets/twoAxisIcon.svg";
 import { ReactComponent as ThreeAxisIcon } from "../assets/threeAxisIcon.svg";
 import { ReactComponent as MultipleAxisIcon } from "../assets/multipleAxisIcon.svg";
+import { ReactComponent as RobotArm3dof } from "../assets/robotArm3dof.svg";
 import { ReactComponent as HomeIcon } from "../assets/home-solid.svg";
 import { NavigateFunction, useNavigate } from "react-router";
 
@@ -16,6 +17,7 @@ export const Navbar = () => {
             <TwoAxisIcon onClick={() => navigate("/twoAxis")} />
             <ThreeAxisIcon onClick={() => navigate("/threeAxis")} />
             <MultipleAxisIcon onClick={() => navigate("/multipleAxis")} />
+            <RobotArm3dof onClick={() => navigate("/robotArm3dof")} />
         </div>
     );
 };

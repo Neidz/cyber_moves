@@ -8,6 +8,7 @@ import { Mainpage } from "./Pages/mainpage";
 import { TwoAxis } from "./Pages/twoAxis";
 import { ThreeAxis } from "./Pages/threeAxis";
 import { MultipleAxis } from "./Pages/multipleAxis";
+import { RobotArm3dof } from "./Pages/robotArm3dof";
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                     <Route path="/twoAxis" element={<TwoAxis />} />
                     <Route path="/threeAxis" element={<ThreeAxis />} />
                     <Route path="/multipleAxis" element={<MultipleAxis />} />
+                    <Route path="/robotArm3dof" element={<RobotArm3dof />} />
                 </Routes>
             </Router>
         </div>
