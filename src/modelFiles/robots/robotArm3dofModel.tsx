@@ -4,7 +4,7 @@ import { anglesState } from "../../store/features/anglesSlice";
 import { keyControlState } from "../../store/features/keyControlSlice";
 import { renderVisualsState } from "../../store/features/renderVisualsSlice";
 import { smoothRotation } from "../../utils/renderMovement/smoothRotation";
-import { toRadian, toRadianList } from "../../utils/toRadian";
+import { toRadianList } from "../../utils/toRadian";
 import { AxisConnector } from "../axisConnector";
 import { AxisConnectorCapped } from "../axisConnectorCapped";
 import { SimpleAxis } from "../simpleAxis";

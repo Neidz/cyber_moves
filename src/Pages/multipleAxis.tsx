@@ -14,7 +14,9 @@ import { arrayFromNumber } from "../utils/arrayFromNumber";
 import { calculateLayout } from "../utils/calculateLayout";
 
 export const MultipleAxis = () => {
+    // eslint-disable-next-line
     const [amountOfAxis, setAmountOfAxis] = useState<number>(10);
+    // eslint-disable-next-line
     const [amountOfDevices, setAmountOfDevices] = useState<number>(5);
 
     const angles = useSelector((state: RootState) => state.angles);

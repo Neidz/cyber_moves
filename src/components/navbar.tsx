@@ -1,7 +1,5 @@
 import "../styles/sections/navbar.scss";
 import { ReactComponent as OneAxisIcon } from "../assets/oneAxisIcon.svg";
-import { ReactComponent as TwoAxisIcon } from "../assets/twoAxisIcon.svg";
-import { ReactComponent as ThreeAxisIcon } from "../assets/threeAxisIcon.svg";
 import { ReactComponent as MultipleAxisIcon } from "../assets/multipleAxisIcon.svg";
 import { ReactComponent as RobotArm3dof } from "../assets/robotArm3dof.svg";
 import { ReactComponent as HomeIcon } from "../assets/home-solid.svg";
