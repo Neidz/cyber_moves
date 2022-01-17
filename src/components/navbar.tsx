@@ -1,8 +1,8 @@
 import "../styles/sections/navbar.scss";
-import { ReactComponent as OneAxisIcon } from "../assets/oneAxisIcon.svg";
-import { ReactComponent as MultipleAxisIcon } from "../assets/multipleAxisIcon.svg";
-import { ReactComponent as RobotArm3dof } from "../assets/robotArm3dof.svg";
-import { ReactComponent as HomeIcon } from "../assets/home-solid.svg";
+import { ReactComponent as OneAxisIcon } from "../assets/icons/oneAxisIcon.svg";
+import { ReactComponent as MultipleAxisIcon } from "../assets/icons/multipleAxisIcon.svg";
+import { ReactComponent as RobotArm3dof } from "../assets/icons/robotArm3dof.svg";
+import { ReactComponent as HomeIcon } from "../assets/icons/home-solid.svg";
 import { NavigateFunction, useNavigate } from "react-router";
 
 export const Navbar = () => {

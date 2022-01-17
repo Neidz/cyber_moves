@@ -1,13 +1,19 @@
 * {
-    --textColor: white;
-    --backgroundColor: rgb(53, 53, 53);
-    --primaryColor: rgb(14, 78, 216);
-    --secondaryColor: grey;
+    // darkmode colors
+    --darkText: rgb(189, 189, 194);
+    --darkBackground: rgb(53, 53, 53);
+    --darkPrimary: rgb(77, 70, 206);
+    --darkPrimaryLighter: rgb(135, 130, 235);
+    --darkPrimaryDarker: rgb(65, 60, 148);
+    --darkHover: rgb(149, 144, 236);
+    --darkSecondary: rgb(63, 61, 86);
+    --darkBorder: rgb(110, 110, 110);
 
     // others values
     --paddingOnSides: 2rem;
     --paddingTopBottom: 1rem;
     --navbarHeight: 3rem;
-    --usableFullHeight: calc(100vh - var(--navbarHeight) - (2 * var(--paddingTopBottom)));
-    --usableFullWidth: calc(100vw - (var(--paddingOnSides) * 2));
+    --usableFullHeight: calc(100vh - var(--navbarHeight));
+    --usableFullHeightWithPadding: calc(100vh - var(--navbarHeight) - (2 * var(--paddingTopBottom)));
+    --usableFullWidthWithPadding: calc(100vw - (var(--paddingOnSides) * 2));
 }

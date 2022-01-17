@@ -2,8 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 import { useSelector } from "react-redux";
-import { ControlPanel } from "../components/controlPanel";
-import { ControlTips } from "../components/controlTips";
+import { RenderMenu } from "../components/renderMenu";
 import { useArrows } from "../hooks/useArrows";
 import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
@@ -30,7 +29,6 @@ export const MultipleAxis = () => {
     return (
         <div className="mainContainer">
             <div className="mainRender">
-                <ControlTips />
                 <Canvas>
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
@@ -62,7 +60,7 @@ export const MultipleAxis = () => {
                     </Suspense>
                 </Canvas>
             </div>
-            <ControlPanel amountOfAxis={amountOfAxis} />
+            <RenderMenu amountOfAxis={amountOfAxis} />
         </div>
     );
 };
