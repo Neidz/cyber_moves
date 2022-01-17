@@ -14,3 +14,18 @@
         1 100%;
     border-radius: 1rem;
 }
+.showMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    width: 1rem;
+    height: 3rem;
+    background-color: var(--darkPrimary);
+    box-sizing: border-box;
+    padding-left: 0.2rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
