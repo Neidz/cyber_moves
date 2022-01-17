@@ -1,18 +1,19 @@
 @mixin icon {
-    color: var(--textCurrent);
+    color: var(--darkPrimary);
     transition: 0.2s;
     width: calc(var(--navbarHeight) * 0.8);
     max-height: calc(var(--navbarHeight) * 0.8);
     &:hover {
         cursor: pointer;
-        color: var(--primaryColor);
+        color: var(--darkHover);
     }
 }
 
 @mixin input1 {
-    background-color: var(--secondaryColor);
-    border: 2px solid var(--primaryColor);
+    background-color: var(--darkSecondary);
+    border: 0.1rem solid var(--darkPrimary);
     border-radius: 0.5rem;
     padding: 0.3rem 0.5rem;
     font-size: 1rem;
+    color: var(--darkText);
 }

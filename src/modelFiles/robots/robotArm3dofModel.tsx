@@ -48,7 +48,11 @@ export const RobotArm3dofModel = (props: robotArm3dofModelProps) => {
                         baseColor={isActive && whichActive === 2 ? activeColor : baseColor}
                         onClick={() => props.changeTarget(2)}
                     />
-                    <AxisConnector rotation={toRadianList([90, 90, 0])} baseColor={baseColor} />
+                    <AxisConnector
+                        rotation={toRadianList([90, 90, 0])}
+                        baseColor={baseColor}
+                        onClick={() => props.changeTarget(2)}
+                    />
                     {/* second arm */}
                     <group>
                         <SimpleAxis
@@ -64,6 +68,7 @@ export const RobotArm3dofModel = (props: robotArm3dofModelProps) => {
                             baseColor={baseColor}
                             position={[0, 12, 0]}
                             targetAngle={angles.angle3}
+                            onClick={() => props.changeTarget(3)}
                         />
                     </group>
                 </group>

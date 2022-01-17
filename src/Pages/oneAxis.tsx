@@ -1,14 +1,13 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
-import { ControlPanel } from "../components/controlPanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { SimpleAxis } from "../modelFiles/simpleAxis";
 import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
 import { useArrows } from "../hooks/useArrows";
-import { ControlTips } from "../components/controlTips";
+import { RenderMenu } from "../components/renderMenu";
 
 export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
@@ -19,7 +18,6 @@ export const OneAxis = () => {
     return (
         <div className="mainContainer">
             <div className="mainRender">
-                <ControlTips />
                 <Canvas>
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
@@ -35,7 +33,7 @@ export const OneAxis = () => {
                     </Suspense>
                 </Canvas>
             </div>
-            <ControlPanel amountOfAxis={1} />
+            <RenderMenu amountOfAxis={1} />
         </div>
     );
 };

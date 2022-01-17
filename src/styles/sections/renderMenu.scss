@@ -1,0 +1,16 @@
+.renderMenu {
+    height: var(--usableFullHeight);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: space-between;
+    position: absolute;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-right: 0.5rem;
+    border-left: 1px solid;
+    border-image: linear-gradient(rgba(0, 0, 0, 0) 0%, var(--darkBorder) 10%, var(--darkBorder) 90%, rgba(255, 0, 0, 0) 100%)
+        1 100%;
+    border-radius: 1rem;
+}

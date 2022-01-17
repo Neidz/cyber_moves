@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { changeAngles } from "../store/features/anglesSlice";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { anglesState, changeAngles } from "../store/features/anglesSlice";
+import { RootState } from "../store/store";
 import { numberRegex } from "../utils/numberRegex";
 
 interface angleInputProps {
@@ -10,6 +11,7 @@ interface angleInputProps {
 export const AngleInput = (props: angleInputProps) => {
     const dispatch = useDispatch();
     const [tempValue, setTempValue] = useState<string>("");
+    const angles = useSelector((state: RootState) => state.angles);
 
     // validates if input for angle is correct
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,6 +24,12 @@ export const AngleInput = (props: angleInputProps) => {
             setTempValue(e.target.value);
         }
     };
+
+    // making sure that if angle of axis corresponding to that input changes through redux then value of input is also updated
+    useEffect(() => {
+        setTempValue(angles[`angle${props.inputNumber}` as keyof anglesState].toString());
+        // eslint-disable-next-line
+    }, [angles[`angle${props.inputNumber}` as keyof anglesState]]);
 
     return (
         <div className="axisInput">
