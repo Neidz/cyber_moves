@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 import { useSelector } from "react-redux";
 import { RenderMenu } from "../components/renderMenu";
+import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
 import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
@@ -15,8 +16,6 @@ import { calculateLayout } from "../utils/calculateLayout";
 
 export const MultipleAxis = () => {
     // eslint-disable-next-line
-    const [amountOfAxis, setAmountOfAxis] = useState<number>(10);
-    // eslint-disable-next-line
     const [amountOfDevices, setAmountOfDevices] = useState<number>(5);
 
     const angles = useSelector((state: RootState) => state.angles);
@@ -25,6 +24,8 @@ export const MultipleAxis = () => {
     );
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const changeTarget = useArrows();
+    useAmountOfAxis(10);
+    const amountOfAxis = useSelector((state: RootState) => state.renderMenu.amountOfAxis);
 
     return (
         <div className="mainContainer">
@@ -60,7 +61,7 @@ export const MultipleAxis = () => {
                     </Suspense>
                 </Canvas>
             </div>
-            <RenderMenu amountOfAxis={amountOfAxis} />
+            <RenderMenu />
         </div>
     );
 };

@@ -1,19 +1,34 @@
 .showMenuSpacer {
     height: var(--usableFullHeight);
     position: relative;
-    .showMenu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 2rem;
-        right: 0;
-        width: 1rem;
-        height: 3rem;
-        background-color: var(--darkPrimary);
-        box-sizing: border-box;
-        padding-left: 0.2rem;
-        border-top-left-radius: 0.3rem;
-        border-bottom-left-radius: 0.3rem;
+}
+.showMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    width: 1.2rem;
+    height: 2rem;
+    background-color: var(--darkPrimary);
+    box-sizing: border-box;
+    padding: 0 0.2rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    transition: 0.3s;
+    animation: showUp 0.5s;
+    &:hover {
+        color: var(--darkHover);
+        cursor: pointer;
+    }
+}
+
+@keyframes changeOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

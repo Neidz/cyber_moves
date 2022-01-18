@@ -1,0 +1,25 @@
+@use "../mixins.scss";
+
+.menuTabs {
+    list-style-type: none;
+    max-width: 20rem;
+    min-height: 1.5rem;
+    overflow-x: scroll;
+    padding: 0.5rem;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--darkGreyBackground);
+    &::-webkit-scrollbar {
+        height: 0.5rem;
+        background-color: rgb(39, 39, 39);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--darkPrimary);
+    }
+    li {
+        @include mixins.tab;
+    }
+}

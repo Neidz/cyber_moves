@@ -8,12 +8,14 @@ import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
 import { useArrows } from "../hooks/useArrows";
 import { RenderMenu } from "../components/renderMenu";
+import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 
 export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
     const { referenceColors, baseColor, activeColor, planeColor } = useSelector((state: RootState) => state.renderVisuals);
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const changeTarget = useArrows();
+    useAmountOfAxis(1);
 
     return (
         <div className="mainContainer">
@@ -33,7 +35,7 @@ export const OneAxis = () => {
                     </Suspense>
                 </Canvas>
             </div>
-            <RenderMenu amountOfAxis={1} />
+            <RenderMenu />
         </div>
     );
 };

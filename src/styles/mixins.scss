@@ -8,12 +8,28 @@
         color: var(--darkHover);
     }
 }
-
 @mixin input1 {
     background-color: var(--darkSecondary);
-    border: 0.1rem solid var(--darkPrimary);
+    border: 0.1rem solid var(--darkPrimaryLighter);
     border-radius: 0.5rem;
     padding: 0.3rem 0.5rem;
     font-size: 1rem;
     color: var(--darkText);
+}
+@mixin standardFormatting {
+    background-color: var(--darkSecondary);
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.5rem;
+}
+@mixin tab {
+    background-color: var(--darkSecondary);
+    border: 0.1rem solid var(--darkPrimaryLighter);
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    color: var(--darkText);
+    &:hover {
+        cursor: pointer;
+        background-color: var(--darkSecondaryLighter);
+    }
 }
