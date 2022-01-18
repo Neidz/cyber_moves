@@ -2,6 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useSelector } from "react-redux";
 import { RenderMenu } from "../components/renderMenu";
+import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
 import { Plane } from "../modelFiles/plane";
 import { RobotArm3dofModel } from "../modelFiles/robots/robotArm3dofModel";
@@ -13,6 +14,7 @@ export const RobotArm3dof = () => {
     const { planeColor } = renderVisuals;
     const keyControl = useSelector((state: RootState) => state.keyControl);
     const changeTarget = useArrows();
+    useAmountOfAxis(3);
 
     return (
         <div className="mainContainer">
@@ -30,7 +32,7 @@ export const RobotArm3dof = () => {
                     <Plane position={[0, -3, 0]} planeColor={planeColor} />
                 </Canvas>
             </div>
-            <RenderMenu amountOfAxis={3} />
+            <RenderMenu />
         </div>
     );
 };

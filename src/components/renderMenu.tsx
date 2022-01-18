@@ -1,23 +1,22 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 import "../styles/sections/renderMenu.scss";
-import { ControlPanel } from "./controlPanel";
+import { AngleInputs } from "./angleInputs";
 import { ControlTips } from "./controlTips";
+import { MenuTabs } from "./menuTabs";
 import { ShowMenu } from "./showMenu";
 
-interface renderMenuProps {
-    amountOfAxis: number;
-}
-
-export const RenderMenu = (props: renderMenuProps) => {
-    const [hidden, setHidden] = useState<boolean>(true);
+export const RenderMenu = () => {
+    const hidden = useSelector((state: RootState) => state.renderMenu.hidden);
 
     if (hidden) {
-        return <ShowMenu setHidden={setHidden} hidden={hidden} />;
+        return <ShowMenu />;
     } else {
         return (
             <div className="renderMenu">
-                <ShowMenu setHidden={setHidden} hidden={hidden} />
-                <ControlPanel amountOfAxis={props.amountOfAxis} />
+                <ShowMenu />
+                <MenuTabs />
+                <AngleInputs />
                 <ControlTips />
             </div>
         );

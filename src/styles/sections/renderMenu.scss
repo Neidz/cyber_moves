@@ -1,31 +1,22 @@
+@use "../mixinsAnimations.scss";
+
 .renderMenu {
-    height: var(--usableFullHeight);
+    height: calc(var(--usableFullHeight) - 0.5rem);
+    min-width: 20rem;
+    margin-bottom: 0.5rem;
     right: 0;
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-    justify-content: space-between;
     position: absolute;
     overflow-y: auto;
     background-color: rgba(255, 255, 255, 0.1);
-    padding-right: 0.5rem;
     border-left: 1px solid;
     border-image: linear-gradient(rgba(0, 0, 0, 0) 0%, var(--darkBorder) 10%, var(--darkBorder) 90%, rgba(255, 0, 0, 0) 100%)
         1 100%;
-    border-radius: 1rem;
-}
-.showMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 2rem;
-    right: 0;
-    width: 1rem;
-    height: 3rem;
-    background-color: var(--darkPrimary);
-    box-sizing: border-box;
-    padding-left: 0.2rem;
-    border-top-left-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    animation: showUp 0.5s;
+    overflow: hidden;
+    @include mixinsAnimations.showUp;
 }
