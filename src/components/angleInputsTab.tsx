@@ -4,7 +4,7 @@ import "../styles/sections/angleInputs.scss";
 import { arrayFromNumber } from "../utils/arrayFromNumber";
 import { AngleInput } from "./angleInput";
 
-export const AngleInputs = () => {
+export const AngleInputsTab = () => {
     const amountOfAxis = useSelector((state: RootState) => state.renderMenu.amountOfAxis);
 
     return (

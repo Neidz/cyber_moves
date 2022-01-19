@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { anglesState, changeAngles } from "../store/features/anglesSlice";
+import { referenceColorsState } from "../store/features/renderVisualsSlice";
 import { RootState } from "../store/store";
 import { numberRegex } from "../utils/numberRegex";
 
@@ -12,6 +13,7 @@ export const AngleInput = (props: angleInputProps) => {
     const dispatch = useDispatch();
     const [tempValue, setTempValue] = useState<string>("");
     const angles = useSelector((state: RootState) => state.angles);
+    const referenceColors = useSelector((state: RootState) => state.renderVisuals.referenceColors);
 
     // validates if input for angle is correct
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +35,9 @@ export const AngleInput = (props: angleInputProps) => {
 
     return (
         <div className="axisInput">
-            <h4>{`axis${props.inputNumber}`}</h4>
+            <h4
+                style={{ color: referenceColors[`referenceColor${props.inputNumber}` as keyof referenceColorsState] }}
+            >{`axis${props.inputNumber} angle`}</h4>
             <input type="text" value={tempValue} onChange={(e) => handleChange(e)} />
         </div>
     );

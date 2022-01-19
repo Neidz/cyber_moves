@@ -15,6 +15,7 @@
     padding: 0.3rem 0.5rem;
     font-size: 1rem;
     color: var(--darkText);
+    max-width: 10rem;
 }
 @mixin standardFormatting {
     background-color: var(--darkSecondary);
@@ -31,5 +32,15 @@
     &:hover {
         cursor: pointer;
         background-color: var(--darkSecondaryLighter);
+    }
+}
+@mixin customScrollbar {
+    &::-webkit-scrollbar {
+        height: 0.5rem;
+        width: 0.5rem;
+        background-color: rgb(39, 39, 39);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--darkPrimary);
     }
 }
