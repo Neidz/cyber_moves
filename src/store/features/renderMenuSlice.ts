@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+type currentTab = "inputs" | "commands" | "visuals" | "options";
+
 interface renderMenuState {
-    currentTab: "inputs" | "commands" | "visuals";
+    currentTab: currentTab;
     hidden: boolean;
     amountOfAxis: number;
 }
@@ -16,7 +18,7 @@ export const renderMenuSlice = createSlice({
     name: "renderMenu",
     initialState,
     reducers: {
-        changeTab: (state, action: PayloadAction<"inputs" | "commands" | "visuals">) => {
+        changeTab: (state, action: PayloadAction<currentTab>) => {
             state.currentTab = action.payload;
         },
         changeHidden: (state, action: PayloadAction<boolean>) => {
@@ -32,4 +34,4 @@ export const { changeTab, changeHidden, changeAmountOfAxis } = renderMenuSlice.a
 
 export default renderMenuSlice.reducer;
 
-export type { renderMenuState };
+export type { renderMenuState, currentTab };
