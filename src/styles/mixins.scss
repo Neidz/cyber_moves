@@ -33,3 +33,13 @@
         background-color: var(--darkSecondaryLighter);
     }
 }
+@mixin customScrollbar {
+    &::-webkit-scrollbar {
+        height: 0.5rem;
+        width: 0.5rem;
+        background-color: rgb(39, 39, 39);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--darkPrimary);
+    }
+}

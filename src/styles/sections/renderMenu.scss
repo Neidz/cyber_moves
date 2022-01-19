@@ -1,8 +1,8 @@
 @use "../mixinsAnimations.scss";
+@use "../mixins.scss";
 
 .renderMenu {
     height: calc(var(--usableFullHeight) - 0.5rem);
-    min-width: 20rem;
     margin-bottom: 0.5rem;
     right: 0;
     display: flex;
@@ -18,4 +18,5 @@
     border-top-left-radius: 1rem;
     animation: showUp 0.5s;
     @include mixinsAnimations.showUp;
+    @include mixins.customScrollbar;
 }
