@@ -1,19 +1,15 @@
 @use "../mixins.scss";
 
-.angleInputs {
+.optionsTab {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
     padding: 0 0.5rem;
-    .axisInput {
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-    }
-    h4 {
-        padding-left: 0.5rem;
-    }
     input {
         @include mixins.input1;
+    }
+    h4 {
+        color: var(--darkText);
     }
 }

@@ -37,7 +37,7 @@ export const AngleInput = (props: angleInputProps) => {
         <div className="axisInput">
             <h4
                 style={{ color: referenceColors[`referenceColor${props.inputNumber}` as keyof referenceColorsState] }}
-            >{`axis${props.inputNumber}`}</h4>
+            >{`axis${props.inputNumber} angle`}</h4>
             <input type="text" value={tempValue} onChange={(e) => handleChange(e)} />
         </div>
     );

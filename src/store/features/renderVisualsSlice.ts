@@ -29,20 +29,20 @@ interface renderVisualsState {
 
 const deviceColorsInitial = {
     deviceColor1: "rgb(222, 0, 0)",
-    deviceColor2: "rgb(222, 120, 0)",
+    deviceColor2: "rgb(219, 138, 42)",
     deviceColor3: "rgb(207, 222, 0)",
-    deviceColor4: "rgb(82, 222, 0)",
+    deviceColor4: "rgb(91, 255, 7)",
     deviceColor5: "rgb(0, 222, 128)",
 };
 const referenceColorsInitial = {
     referenceColor1: "rgb(222, 0, 0)",
-    referenceColor2: "rgb(222, 120, 0)",
+    referenceColor2: "rgb(219, 138, 42)",
     referenceColor3: "rgb(200, 222, 0)",
-    referenceColor4: "rgb(112, 222, 0)",
+    referenceColor4: "rgb(91, 255, 7)",
     referenceColor5: "rgb(0, 222, 128)",
-    referenceColor6: "rgb(0, 222, 222)",
+    referenceColor6: "rgb(10, 107, 253)",
     referenceColor7: "rgb(0, 26, 222)",
-    referenceColor8: "rgb(112, 0, 222)",
+    referenceColor8: "rgb(127, 40, 213)",
     referenceColor9: "rgb(214, 0, 222)",
     referenceColor10: "rgb(222, 0, 89)",
 };
