@@ -9,6 +9,7 @@ import { Plane } from "../modelFiles/plane";
 import { useArrows } from "../hooks/useArrows";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
+import { useCleanUp } from "../hooks/useCleanUp";
 
 export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
@@ -16,6 +17,7 @@ export const OneAxis = () => {
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const changeTarget = useArrows();
     useAmountOfAxis(1);
+    useCleanUp();
 
     return (
         <div className="mainContainer">
