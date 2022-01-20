@@ -11,8 +11,12 @@ export const MenuTabs = () => {
 
     return (
         <ul className="menuTabs">
-            {tabs.map((tab: currentTab) => {
-                return <li onClick={() => handleTabChange(tab)}>{tab}</li>;
+            {tabs.map((tab: currentTab, key: number) => {
+                return (
+                    <li key={key} onClick={() => handleTabChange(tab)}>
+                        {tab}
+                    </li>
+                );
             })}
         </ul>
     );

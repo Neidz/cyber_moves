@@ -1,9 +1,11 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
+import { useCleanUp } from "../hooks/useCleanUp";
 import { Plane } from "../modelFiles/plane";
 import { RobotArm3dofModel } from "../modelFiles/robots/robotArm3dofModel";
 import { RootState } from "../store/store";
@@ -15,6 +17,7 @@ export const RobotArm3dof = () => {
     const keyControl = useSelector((state: RootState) => state.keyControl);
     const changeTarget = useArrows();
     useAmountOfAxis(3);
+    useCleanUp();
 
     return (
         <div className="mainContainer">

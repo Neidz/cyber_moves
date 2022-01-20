@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
+import { useCleanUp } from "../hooks/useCleanUp";
 import { Lamp } from "../modelFiles/lamp";
 import { Plane } from "../modelFiles/plane";
 import { SimpleAxis } from "../modelFiles/simpleAxis";
@@ -23,9 +24,10 @@ export const MultipleAxis = () => {
         (state: RootState) => state.renderVisuals
     );
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
+    const amountOfAxis = useSelector((state: RootState) => state.renderMenu.amountOfAxis);
     const changeTarget = useArrows();
     useAmountOfAxis(10);
-    const amountOfAxis = useSelector((state: RootState) => state.renderMenu.amountOfAxis);
+    useCleanUp();
 
     return (
         <div className="mainContainer">
