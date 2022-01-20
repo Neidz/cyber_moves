@@ -1,7 +1,6 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
