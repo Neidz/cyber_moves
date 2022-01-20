@@ -1,6 +1,6 @@
 @use "../mixins.scss";
 
-.angleInputs {
+.angleInputsTab {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -15,5 +15,13 @@
     }
     input {
         @include mixins.input1;
+    }
+    .angleInputsTabButtons {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        button {
+            @include mixins.button1;
+        }
     }
 }

@@ -2,16 +2,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface command {
     speed?: number;
-    axis1?: number;
-    axis2?: number;
-    axis3?: number;
-    axis4?: number;
-    axis5?: number;
-    axis6?: number;
-    axis7?: number;
-    axis8?: number;
-    axis9?: number;
-    axis10?: number;
+    angle1?: number;
+    angle2?: number;
+    angle3?: number;
+    angle4?: number;
+    angle5?: number;
+    angle?: number;
+    angle7?: number;
+    angle8?: number;
+    angle9?: number;
+    angle10?: number;
 }
 
 interface commandsState {
@@ -40,6 +40,12 @@ export const commandsSlice = createSlice({
                 state.commands[action.payload.commandIndex] = action.payload.newCommand;
             }
         },
+        clearCommands: (state) => {
+            state.commands = [];
+        },
+        removeLastCommand: (state) => {
+            state.commands.pop();
+        },
         editUser: (state, action: PayloadAction<string>) => {
             state.createdBy = action.payload;
         },
@@ -49,7 +55,7 @@ export const commandsSlice = createSlice({
     },
 });
 
-export const { newCommand, editCommand } = commandsSlice.actions;
+export const { newCommand, editCommand, clearCommands, removeLastCommand, editUser, editCategory } = commandsSlice.actions;
 
 export default commandsSlice.reducer;
 export type { command };
