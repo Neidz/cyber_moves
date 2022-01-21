@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-syntax-highlighter": "^13.5.2",
     "@types/three": "^0.136.0"
   }
 }
