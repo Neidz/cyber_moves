@@ -18,7 +18,8 @@
     }
     .angleInputsTabButtons {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 1rem;
         button {
             @include mixins.button1;

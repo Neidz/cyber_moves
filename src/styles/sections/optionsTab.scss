@@ -6,10 +6,13 @@
     align-items: flex-start;
     gap: 1rem;
     padding: 0 0.5rem;
-    input {
-        @include mixins.input1;
-    }
     h4 {
         color: var(--darkText);
+    }
+    input {
+        width: 50%;
+    }
+    .controlSpeedValue {
+        padding-left: 25%;
     }
 }
