@@ -13,7 +13,7 @@ export const OptionsTab = () => {
 
     return (
         <div className="optionsTab">
-            <h4>speed of arrow control (angle change/frame)</h4>
+            <h3>Speed of arrow control (angle change/frame)</h3>
             <h4 className="controlSpeedValue">{controlSpeed}</h4>
             <input type="range" value={controlSpeed} min="1" max="50" onChange={(e) => handleSpeedChange(e)} />
         </div>

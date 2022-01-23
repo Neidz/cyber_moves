@@ -9,6 +9,7 @@ export const CommandsTab = () => {
 
     return (
         <div className="commandsTab">
+            <h3>List of commands submited through inputs tab</h3>
             <div className="commandList">
                 {commands.map((object: object, key: number) => (
                     <div className="highlightedCommand" key={key}>

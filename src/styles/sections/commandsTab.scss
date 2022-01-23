@@ -5,6 +5,9 @@
     padding: 1rem;
     overflow-x: auto;
     @include mixins.customScrollbar;
+    h3 {
+        color: var(--darkText);
+    }
     .commandList {
         display: flex;
         flex-direction: column;

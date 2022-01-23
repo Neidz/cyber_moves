@@ -12,6 +12,7 @@ export const AngleInputsTab = () => {
 
     return (
         <div className="angleInputsTab">
+            <h3>Enter value for choosen axis</h3>
             {arrayFromNumber(amountOfAxis).map((key: number, inputNumber: number) => {
                 return <AngleInput key={key} inputNumber={inputNumber + 1} />;
             })}
