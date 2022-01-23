@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface command {
+interface commandState {
     speed?: number;
     angle1?: number;
     angle2?: number;
@@ -15,7 +15,7 @@ interface command {
 }
 
 interface commandsState {
-    commands: Array<command>;
+    commands: Array<commandState>;
     createdBy: string;
     category: string;
 }
@@ -30,10 +30,10 @@ export const commandsSlice = createSlice({
     name: "commands",
     initialState,
     reducers: {
-        newCommand: (state, action: PayloadAction<command>) => {
+        newCommand: (state, action: PayloadAction<commandState>) => {
             state.commands.push(action.payload);
         },
-        editCommand: (state, action: PayloadAction<{ commandIndex: number; newCommand: command }>) => {
+        editCommand: (state, action: PayloadAction<{ commandIndex: number; newCommand: commandState }>) => {
             if (state.commands.length - 1 < action.payload.commandIndex) {
                 console.log(`list of commands doesn't have index ${action.payload.commandIndex}`);
             } else {
@@ -58,4 +58,4 @@ export const commandsSlice = createSlice({
 export const { newCommand, editCommand, clearCommands, removeLastCommand, editUser, editCategory } = commandsSlice.actions;
 
 export default commandsSlice.reducer;
-export type { command };
+export type { commandState };
