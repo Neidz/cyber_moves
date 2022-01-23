@@ -1,0 +1,26 @@
+@use "../mixins.scss";
+
+.visualsTab {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    h3 {
+        color: var(--darkText);
+    }
+    .referenceColors {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        .axis {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            button {
+                @include mixins.button1;
+                min-width: 4rem;
+            }
+        }
+    }
+}

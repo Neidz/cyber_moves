@@ -2,19 +2,26 @@
 
 .commandsTab {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
     padding: 1rem;
+    overflow-x: auto;
+    @include mixins.customScrollbar;
+    h3 {
+        color: var(--darkText);
+    }
+    button {
+        align-self: flex-start;
+        @include mixins.button1;
+    }
     .commandList {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        max-width: 90vw;
-        padding-top: 2rem;
         .highlightedCommand {
             display: flex;
             flex-direction: row;
             gap: 0.5rem;
-            overflow-x: auto;
-            @include mixins.customScrollbar;
             .commandNumber {
                 padding-right: 0.5rem;
                 color: var(--darkText);

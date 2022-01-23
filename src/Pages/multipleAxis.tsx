@@ -26,7 +26,7 @@ export const MultipleAxis = () => {
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const amountOfAxis = useSelector((state: RootState) => state.renderMenu.amountOfAxis);
     const changeTarget = useArrows();
-    useAmountOfAxis(10);
+    useAmountOfAxis(9);
     useCleanUp();
 
     return (

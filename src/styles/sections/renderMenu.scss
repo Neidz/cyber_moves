@@ -3,6 +3,7 @@
 
 .renderMenu {
     height: calc(var(--usableFullHeight) - 0.5rem);
+    width: 30rem;
     max-width: 100vw;
     margin-bottom: 0.5rem;
     right: 0;
@@ -20,4 +21,15 @@
     animation: showUp 0.5s;
     @include mixinsAnimations.showUp;
     @include mixins.customScrollbar;
+}
+
+@media only screen and (max-width: 900px) and (min-width: 500px) {
+    .renderMenu {
+        width: 25rem;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .renderMenu {
+        width: 100vw;
+    }
 }
