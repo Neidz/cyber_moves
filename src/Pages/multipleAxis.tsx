@@ -2,6 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useState } from "react";
 import { useSelector } from "react-redux";
+import { OnScreenArrows } from "../components/onScreenArrows";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
@@ -64,6 +65,7 @@ export const MultipleAxis = () => {
                 </Canvas>
             </div>
             <RenderMenu />
+            <OnScreenArrows />
         </div>
     );
 };

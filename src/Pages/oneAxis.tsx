@@ -10,6 +10,7 @@ import { useArrows } from "../hooks/useArrows";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useCleanUp } from "../hooks/useCleanUp";
+import { OnScreenArrows } from "../components/onScreenArrows";
 
 export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
@@ -38,6 +39,7 @@ export const OneAxis = () => {
                 </Canvas>
             </div>
             <RenderMenu />
+            <OnScreenArrows />
         </div>
     );
 };

@@ -11,7 +11,7 @@ export const ShowMenu = () => {
     if (hidden) {
         return (
             <div className="showMenuSpacer">
-                <div className="showMenu">
+                <div className="showMenu" style={{ transform: "scale(1.2)" }}>
                     <TriangleRight
                         id="triangleRight"
                         style={{ transform: "rotate(180deg)" }}
