@@ -1,6 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useSelector } from "react-redux";
+import { OnScreenArrows } from "../components/onScreenArrows";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
@@ -35,6 +36,7 @@ export const RobotArm3dof = () => {
                 </Canvas>
             </div>
             <RenderMenu />
+            <OnScreenArrows />
         </div>
     );
 };
