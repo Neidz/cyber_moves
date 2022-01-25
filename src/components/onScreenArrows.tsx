@@ -7,13 +7,16 @@ import useInterval from "../hooks/useInterval";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { addAngles } from "../store/features/anglesSlice";
+import { newCommand } from "../store/features/commandsSlice";
 
 export const OnScreenArrows = () => {
     const [heldLeft, setHeldLeft] = useState<boolean>(false);
     const [heldRight, setHeldRight] = useState<boolean>(false);
     const { whichActive, isActive, controlSpeed } = useSelector((state: RootState) => state.keyControl);
+    const angles = useSelector((state: RootState) => state.angles);
     const dispatch = useDispatch();
 
+    // if any object is active then it will rotate left or right as long as coresponding arrow is held down
     useInterval(
         () => {
             if (isActive && whichActive) {
@@ -39,7 +42,7 @@ export const OnScreenArrows = () => {
                 onTouchEnd={() => setHeldLeft(!heldLeft)}
                 onMouseUp={() => setHeldLeft(!heldLeft)}
             />
-            <PlusCircle />
+            <PlusCircle onClick={() => dispatch(newCommand(angles))} />
             <ArrowCircleRight
                 onTouchStart={() => setHeldRight(!heldRight)}
                 onMouseDown={() => setHeldRight(!heldRight)}

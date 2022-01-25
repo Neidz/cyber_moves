@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type currentTab = "inputs" | "commands" | "visuals" | "options";
+type currentTab = "angles" | "commands" | "visuals" | "options" | "how it works";
 
 interface renderMenuState {
     currentTab: currentTab;
@@ -9,7 +9,7 @@ interface renderMenuState {
 }
 
 const initialState: renderMenuState = {
-    currentTab: "inputs",
+    currentTab: "angles",
     hidden: true,
     amountOfAxis: 1,
 };

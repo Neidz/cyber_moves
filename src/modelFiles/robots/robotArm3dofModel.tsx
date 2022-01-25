@@ -57,7 +57,7 @@ export const RobotArm3dofModel = (props: robotArm3dofModelProps) => {
                     <group>
                         <SimpleAxis
                             rotation={toRadianList([90, 0, 0])}
-                            referenceColor={referenceColors.referenceColor2}
+                            referenceColor={referenceColors.referenceColor3}
                             baseColor={isActive && whichActive === 3 ? activeColor : baseColor}
                             onClick={() => props.changeTarget(3)}
                             position={[0, 12, 0]}
