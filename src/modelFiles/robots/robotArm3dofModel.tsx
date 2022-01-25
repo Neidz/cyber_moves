@@ -24,8 +24,11 @@ export const RobotArm3dofModel = (props: robotArm3dofModelProps) => {
     const robot = useRef();
     const firstArm = useRef();
 
-    useFrame(() => {
+    let time = 0;
+    useFrame(({ clock }) => {
         smoothRotation(robot, angles.angle1);
+        time = time + clock.elapsedTime / 100000;
+        // console.log(time);
     });
     useFrame(() => {
         smoothRotation(firstArm, angles.angle2, "z");
