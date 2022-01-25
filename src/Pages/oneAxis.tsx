@@ -16,6 +16,7 @@ export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
     const { referenceColors, baseColor, activeColor, planeColor } = useSelector((state: RootState) => state.renderVisuals);
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
+    const { animationSpeed } = useSelector((state: RootState) => state.options);
     const changeTarget = useArrows();
     useAmountOfAxis(1);
     useCleanUp();
@@ -32,6 +33,7 @@ export const OneAxis = () => {
                             referenceColor={referenceColors.referenceColor1}
                             baseColor={isActive && whichActive === 1 ? activeColor : baseColor}
                             onClick={() => changeTarget(1)}
+                            animationSpeed={animationSpeed}
                         />
                         <Lamp position={[2, 0, 2]} lightColor={referenceColors.referenceColor1} baseColor={baseColor} />
                         <Plane position={[0, -3, 0]} planeColor={planeColor} />

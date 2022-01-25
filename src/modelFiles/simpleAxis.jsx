@@ -8,7 +8,7 @@ export const SimpleAxis = (props) => {
   const group = useRef()
   const { nodes } = useGLTF('/models/simpleAxis.glb')
 
-  useFrame(()=> {smoothRotation(group, props.targetAngle)})
+  useFrame(()=> {smoothRotation(group, props.targetAngle,'y',props.animationSpeed)})
 
   return (
     <group ref={group} {...props} dispose={null}>

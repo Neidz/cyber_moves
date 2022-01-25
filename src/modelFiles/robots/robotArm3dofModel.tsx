@@ -13,6 +13,7 @@ interface robotArm3dofModelProps {
     angles: anglesState;
     renderVisuals: renderVisualsState;
     keyControl: keyControlState;
+    animationSpeed: number;
     changeTarget: (target: number) => void;
 }
 
@@ -24,14 +25,11 @@ export const RobotArm3dofModel = (props: robotArm3dofModelProps) => {
     const robot = useRef();
     const firstArm = useRef();
 
-    let time = 0;
-    useFrame(({ clock }) => {
-        smoothRotation(robot, angles.angle1);
-        time = time + clock.elapsedTime / 100000;
-        // console.log(time);
+    useFrame(() => {
+        smoothRotation(robot, angles.angle1, "y", props.animationSpeed);
     });
     useFrame(() => {
-        smoothRotation(firstArm, angles.angle2, "z");
+        smoothRotation(firstArm, angles.angle2, "z", props.animationSpeed);
     });
 
     return (

@@ -5,7 +5,7 @@ interface optionsState {
 }
 
 const initialState: optionsState = {
-    animationSpeed: 3000,
+    animationSpeed: 1000,
 };
 
 export const optionsSlice = createSlice({

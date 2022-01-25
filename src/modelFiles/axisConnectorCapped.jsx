@@ -8,7 +8,7 @@ export const AxisConnectorCapped = (props) => {
   const group = useRef()
   const { nodes } = useGLTF('/models/axisConnectorCapped.glb')
 
-  useFrame(()=> {smoothRotation(group, props.targetAngle)})
+  useFrame(()=> {smoothRotation(group, props.targetAngle,'y',props.animationSpeed)})
 
   return (
     <group ref={group} {...props} dispose={null}>
