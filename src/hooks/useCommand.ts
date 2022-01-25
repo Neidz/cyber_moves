@@ -8,9 +8,8 @@ import { arrayFromNumber } from "../utils/arrayFromNumber";
 export const useCommand = () => {
     const { commands } = useSelector((state: RootState) => state.commands);
     const { amountOfAxis } = useSelector((state: RootState) => state.renderMenu);
+    const { animationSpeed } = useSelector((state: RootState) => state.options);
     const dispatch = useDispatch();
-    // indicates how fast should next animation start
-    const delayBetweenCommands = 5000;
 
     const executeCommands = () => {
         // maps through commands
@@ -27,7 +26,7 @@ export const useCommand = () => {
                         dispatch(changeAngles([axisNumber, newAngle]));
                     }
                 });
-            }, delayBetweenCommands * index)
+            }, animationSpeed * index)
         );
     };
     return executeCommands;

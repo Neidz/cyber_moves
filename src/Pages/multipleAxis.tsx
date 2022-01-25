@@ -26,6 +26,7 @@ export const MultipleAxis = () => {
     );
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const amountOfAxis = useSelector((state: RootState) => state.renderMenu.amountOfAxis);
+    const { animationSpeed } = useSelector((state: RootState) => state.options);
     const changeTarget = useArrows();
     useAmountOfAxis(9);
     useCleanUp();
@@ -46,6 +47,7 @@ export const MultipleAxis = () => {
                                     key={key}
                                     targetAngle={angles[`angle${key}` as keyof anglesState]}
                                     onClick={() => changeTarget(key)}
+                                    animationSpeed={animationSpeed}
                                 />
                             );
                         })}

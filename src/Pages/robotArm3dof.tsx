@@ -15,6 +15,7 @@ export const RobotArm3dof = () => {
     const renderVisuals = useSelector((state: RootState) => state.renderVisuals);
     const { planeColor } = renderVisuals;
     const keyControl = useSelector((state: RootState) => state.keyControl);
+    const { animationSpeed } = useSelector((state: RootState) => state.options);
     const changeTarget = useArrows();
     useAmountOfAxis(3);
     useCleanUp();
@@ -31,6 +32,7 @@ export const RobotArm3dof = () => {
                         renderVisuals={renderVisuals}
                         keyControl={keyControl}
                         changeTarget={changeTarget}
+                        animationSpeed={animationSpeed}
                     />
                     <Plane position={[0, -3, 0]} planeColor={planeColor} />
                 </Canvas>

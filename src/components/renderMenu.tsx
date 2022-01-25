@@ -4,6 +4,7 @@ import "../styles/sections/renderMenu.scss";
 import { AngleInputsTab } from "./angleInputsTab";
 import { CommandsTab } from "./commandsTab";
 import { ControlTips } from "./controlTips";
+import { HowItWorksTab } from "./howItWorksTab";
 import { MenuTabs } from "./menuTabs";
 import { OptionsTab } from "./optionsTab";
 import { ShowMenu } from "./showMenu";
@@ -19,10 +20,11 @@ export const RenderMenu = () => {
             <div className="renderMenu">
                 <ShowMenu />
                 <MenuTabs />
-                {currentTab === "inputs" && <AngleInputsTab />}
+                {currentTab === "angles" && <AngleInputsTab />}
                 {currentTab === "commands" && <CommandsTab />}
                 {currentTab === "options" && <OptionsTab />}
                 {currentTab === "visuals" && <VisualsTab />}
+                {currentTab === "how it works" && <HowItWorksTab />}
                 <ControlTips />
             </div>
         );

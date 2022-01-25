@@ -5,6 +5,7 @@ import devicesReducer from "./features/devicesSlice";
 import renderVisualsReducer from "./features/renderVisualsSlice";
 import keyControlReducer from "./features/keyControlSlice";
 import renderMenuReducer from "./features/renderMenuSlice";
+import optionsReducer from "./features/optionsSlice";
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
         renderVisuals: renderVisualsReducer,
         keyControl: keyControlReducer,
         renderMenu: renderMenuReducer,
+        options: optionsReducer,
     },
 });
 

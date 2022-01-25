@@ -13,6 +13,7 @@ interface robotArm3dofModelProps {
     angles: anglesState;
     renderVisuals: renderVisualsState;
     keyControl: keyControlState;
+    animationSpeed: number;
     changeTarget: (target: number) => void;
 }
 
@@ -25,10 +26,10 @@ export const RobotArm3dofModel = (props: robotArm3dofModelProps) => {
     const firstArm = useRef();
 
     useFrame(() => {
-        smoothRotation(robot, angles.angle1);
+        smoothRotation(robot, angles.angle1, "y", props.animationSpeed);
     });
     useFrame(() => {
-        smoothRotation(firstArm, angles.angle2, "z");
+        smoothRotation(firstArm, angles.angle2, "z", props.animationSpeed);
     });
 
     return (
@@ -57,7 +58,7 @@ export const RobotArm3dofModel = (props: robotArm3dofModelProps) => {
                     <group>
                         <SimpleAxis
                             rotation={toRadianList([90, 0, 0])}
-                            referenceColor={referenceColors.referenceColor2}
+                            referenceColor={referenceColors.referenceColor3}
                             baseColor={isActive && whichActive === 3 ? activeColor : baseColor}
                             onClick={() => props.changeTarget(3)}
                             position={[0, 12, 0]}
