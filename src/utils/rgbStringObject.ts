@@ -36,3 +36,19 @@ export const rgbStringToObject = (rgb: string) => {
     console.log("wrong value for rgb function");
     return null;
 };
+
+// changes rgb or rgba string to rgb object in fractions, a is cut out to avoit mess in blender models
+// "rgba(120,121,122,1)" => returns {r: 120/255, g: 121/255, b: 122/255}
+export const rgbStringToObjectFraction = (rgb: string) => {
+    const colorsRegex = /rgb\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)/;
+    const matchedColors = colorsRegex.exec(rgb);
+    const r = matchedColors && matchedColors[1];
+    const g = matchedColors && matchedColors[2];
+    const b = matchedColors && matchedColors[3];
+    if (r !== undefined && r && g !== undefined && g && b !== undefined && b) {
+        return { r: parseInt(r) / 255, g: parseInt(g) / 255, b: parseInt(b) / 255 };
+    }
+
+    console.log("wrong value for rgb function");
+    return null;
+};

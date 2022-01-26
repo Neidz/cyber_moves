@@ -50,7 +50,7 @@ const referenceColorsInitial = {
 const initialState: renderVisualsState = {
     baseColor: "rgb(31, 31, 31)",
     deviceColors: deviceColorsInitial,
-    planeColor: "rgb(0, 0, 0)",
+    planeColor: "rgb(17, 3, 227)",
     referenceColors: referenceColorsInitial,
     activeColor: "rgb(255, 255, 255)",
 };
@@ -73,6 +73,9 @@ export const renderVisualsSlice = createSlice({
         changePlaneColor: (state, action: PayloadAction<string>) => {
             state.planeColor = action.payload;
         },
+        changeActiveColor: (state, action: PayloadAction<string>) => {
+            state.activeColor = action.payload;
+        },
         changeReferenceColor: (state, action: PayloadAction<[referenceIndex: number, newColor: string]>) => {
             if (action.payload[0] > 0 && action.payload[0] < 11) {
                 const referenceEntry = `referenceColor${action.payload[0]}`;
@@ -84,7 +87,8 @@ export const renderVisualsSlice = createSlice({
     },
 });
 
-export const { changeBaseColor, changeDeviceColor, changePlaneColor, changeReferenceColor } = renderVisualsSlice.actions;
+export const { changeBaseColor, changeDeviceColor, changePlaneColor, changeReferenceColor, changeActiveColor } =
+    renderVisualsSlice.actions;
 
 export default renderVisualsSlice.reducer;
 
