@@ -7,7 +7,7 @@ import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
 import { useCleanUp } from "../hooks/useCleanUp";
 import { Plane } from "../modelFiles/plane";
-import { RobotArm3dofModel } from "../modelFiles/robots/robotArm3dofModel";
+import { RobotArm } from "../modelFiles/robots/robotArm";
 import { RootState } from "../store/store";
 
 export const RobotArm3dof = () => {
@@ -17,7 +17,7 @@ export const RobotArm3dof = () => {
     const keyControl = useSelector((state: RootState) => state.keyControl);
     const { animationSpeed } = useSelector((state: RootState) => state.options);
     const changeTarget = useArrows();
-    useAmountOfAxis(3);
+    useAmountOfAxis(4);
     useCleanUp();
 
     return (
@@ -27,14 +27,28 @@ export const RobotArm3dof = () => {
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
                     {/* states have to be passed through props because they can't be selected inside component in canvas */}
-                    <RobotArm3dofModel
+                    {/* <RobotArm3dofModel
+                        angles={angles}
+                        renderVisuals={renderVisuals}
+                        keyControl={keyControl}
+                        changeTarget={changeTarget}
+                        animationSpeed={animationSpeed}
+                    /> */}
+                    <RobotArm
                         angles={angles}
                         renderVisuals={renderVisuals}
                         keyControl={keyControl}
                         changeTarget={changeTarget}
                         animationSpeed={animationSpeed}
                     />
-                    <Plane position={[0, -3, 0]} planeColor={planeColor} />
+                    <Plane
+                        planeColor={planeColor}
+                        angles={angles}
+                        renderVisuals={renderVisuals}
+                        keyControl={keyControl}
+                        changeTarget={changeTarget}
+                        animationSpeed={animationSpeed}
+                    />
                 </Canvas>
             </div>
             <RenderMenu />

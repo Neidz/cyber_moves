@@ -8,8 +8,8 @@ export const  Plane = (props) => {
   materials.plane.emissive = rgbStringToObjectFraction(props.planeColor)
   
   return (
-    <group ref={group} {...props} dispose={null} scale = "5">
-      <mesh castShadow receiveShadow geometry={nodes.plane.geometry} material={materials.plane} />
+    <group ref={group} {...props} dispose={null} scale = "5" >
+      <mesh castShadow receiveShadow geometry={nodes.plane.geometry} material={materials.plane} position={[0, -0.1, 0]}/>
     </group>
   )
 }
