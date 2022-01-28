@@ -1,5 +1,6 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
 import { useSelector } from "react-redux";
 import { OnScreenArrows } from "../components/onScreenArrows";
 import { RenderMenu } from "../components/renderMenu";
@@ -27,22 +28,24 @@ export const RobotArm4dof = () => {
                     <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
                     {/* states have to be passed through props because they can't be selected inside component in canvas */}
-                    <RobotArm
-                        angles={angles}
-                        renderVisuals={renderVisuals}
-                        keyControl={keyControl}
-                        changeTarget={changeTarget}
-                        animationSpeed={animationSpeed}
-                        dof={4}
-                    />
-                    <Plane
-                        planeColor={planeColor}
-                        angles={angles}
-                        renderVisuals={renderVisuals}
-                        keyControl={keyControl}
-                        changeTarget={changeTarget}
-                        animationSpeed={animationSpeed}
-                    />
+                    <Suspense fallback={null}>
+                        <RobotArm
+                            angles={angles}
+                            renderVisuals={renderVisuals}
+                            keyControl={keyControl}
+                            changeTarget={changeTarget}
+                            animationSpeed={animationSpeed}
+                            dof={4}
+                        />
+                        <Plane
+                            planeColor={planeColor}
+                            angles={angles}
+                            renderVisuals={renderVisuals}
+                            keyControl={keyControl}
+                            changeTarget={changeTarget}
+                            animationSpeed={animationSpeed}
+                        />
+                    </Suspense>
                 </Canvas>
             </div>
             <RenderMenu />
