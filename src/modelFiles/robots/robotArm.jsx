@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import  { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { smoothRotation } from '../../utils/renderMovement/smoothRotation';
 import { useFrame } from '@react-three/fiber';
@@ -11,6 +11,7 @@ const { nodes, materials } = useGLTF('/models/robotArm.glb')
   const angles = props.angles;
   const { referenceColors, baseColor, activeColor } = props.renderVisuals;
   const { isActive, whichActive } = props.keyControl;
+
 
   const group = useRef()
   const base = useRef();
@@ -84,7 +85,7 @@ materials.firstArmMaterial.color = rgbStringToObjectFraction(referenceColors.ref
           material={materials.secondArmEmissive}
         />
       </group>
-      <group position={[0, 10.33, 0]} ref={thirdArm} onClick={() => props.changeTarget(4)}>
+      {props.dof === 4 && <group position={[0, 10.33, 0]} ref={thirdArm} onClick={() => props.changeTarget(4)}>
         <mesh
           castShadow
           receiveShadow
@@ -96,8 +97,8 @@ materials.firstArmMaterial.color = rgbStringToObjectFraction(referenceColors.ref
           receiveShadow
           geometry={nodes.thirdArm_2.geometry}
           material={materials.thirdArmEmissive}
-        />
-      </group></group></group>
+        /></group>}
+      </group></group>
     </group></group>
   )
 }

@@ -10,15 +10,14 @@ import { Plane } from "../modelFiles/plane";
 import { RobotArm } from "../modelFiles/robots/robotArm";
 import { RootState } from "../store/store";
 
-// the same model as RobotArm3dof but last arm is cut and model reused
-export const RobotArm3dof = () => {
+export const RobotArm4dof = () => {
     const angles = useSelector((state: RootState) => state.angles);
     const renderVisuals = useSelector((state: RootState) => state.renderVisuals);
     const { planeColor } = renderVisuals;
     const keyControl = useSelector((state: RootState) => state.keyControl);
     const { animationSpeed } = useSelector((state: RootState) => state.options);
     const changeTarget = useArrows();
-    useAmountOfAxis(3);
+    useAmountOfAxis(4);
     useCleanUp();
 
     return (
@@ -34,6 +33,7 @@ export const RobotArm3dof = () => {
                         keyControl={keyControl}
                         changeTarget={changeTarget}
                         animationSpeed={animationSpeed}
+                        dof={4}
                     />
                     <Plane
                         planeColor={planeColor}
