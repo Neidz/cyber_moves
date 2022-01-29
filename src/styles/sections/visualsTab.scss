@@ -3,12 +3,8 @@
 .visualsTab {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0 0.5rem;
     gap: 1rem;
-    h3,
-    h4 {
-        color: var(--darkText);
-    }
     button {
         @include mixins.button1;
         min-width: 4rem;

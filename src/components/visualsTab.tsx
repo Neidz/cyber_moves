@@ -12,14 +12,14 @@ export const VisualsTab = () => {
 
     return (
         <div className="visualsTab">
-            <h3>Click on element's name to change color of that element</h3>
-            <h4>list of current axes</h4>
+            <h2>Click on element's name to change color of that element</h2>
+            <h3>list of current axes</h3>
             <div className="referenceColors">
                 {arrayFromNumber(amountOfAxis).map((angleNumber: number, key) => {
                     return <ReferenceColorPicker key={key} angleNumber={angleNumber} />;
                 })}
             </div>
-            <h4>other elements</h4>
+            <h3>other elements</h3>
             <div className="otherElements">
                 <PlaneColorPicker />
                 <ActiveColorPicker />

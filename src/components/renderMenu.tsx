@@ -3,7 +3,6 @@ import { RootState } from "../store/store";
 import "../styles/sections/renderMenu.scss";
 import { AngleInputsTab } from "./angleInputsTab";
 import { CommandsTab } from "./commandsTab";
-import { ControlTips } from "./controlTips";
 import { HowItWorksTab } from "./howItWorksTab";
 import { MenuTabs } from "./menuTabs";
 import { OptionsTab } from "./optionsTab";
@@ -25,7 +24,6 @@ export const RenderMenu = () => {
                 {currentTab === "options" && <OptionsTab />}
                 {currentTab === "visuals" && <VisualsTab />}
                 {currentTab === "how it works" && <HowItWorksTab />}
-                <ControlTips />
             </div>
         );
     }

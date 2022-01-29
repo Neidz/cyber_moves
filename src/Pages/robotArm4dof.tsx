@@ -25,7 +25,6 @@ export const RobotArm4dof = () => {
         <div className="mainContainer">
             <div className="mainRender">
                 <Canvas>
-                    <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
                     {/* states have to be passed through props because they can't be selected inside component in canvas */}
                     <Suspense fallback={null}>

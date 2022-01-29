@@ -46,10 +46,15 @@ export const anglesSlice = createSlice({
                 console.log("wrong angle choosen");
             }
         },
+        zeroAllAngles: (state) => {
+            for (let i = 0; i < 11; i++) {
+                state[`angle${i}` as keyof anglesState] = 0;
+            }
+        },
     },
 });
 
-export const { changeAngles, addAngles } = anglesSlice.actions;
+export const { changeAngles, addAngles, zeroAllAngles } = anglesSlice.actions;
 
 export default anglesSlice.reducer;
 
