@@ -5,29 +5,40 @@ h1 {
     font-family: "Poppins", sans-serif;
     font-size: 4rem;
     font-weight: 700;
-    color: var(--textColor);
+    color: var(--currentText);
 }
 h2 {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    font-size: 3rem;
-    color: var(--textColor);
+    font-size: 1.5rem;
+    color: var(--currentText);
 }
 h3 {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    font-size: 1.3rem;
-    color: var(--textColor);
+    font-size: 1.2rem;
+    color: var(--currentText);
 }
-h4,
+h4 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    color: var(--currentText);
+}
+h5 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.85rem;
+    color: var(--currentText);
+}
 p,
 button,
 textarea,
 input {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    font-size: 0.8rem;
-    color: var(--textColor);
+    font-size: 0.85rem;
+    color: var(--currentText);
 }
 // disabling arrows on number inputs
 input::-webkit-outer-spin-button,

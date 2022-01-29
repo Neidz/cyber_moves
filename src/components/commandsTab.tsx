@@ -11,28 +11,28 @@ export const CommandsTab = () => {
 
     return (
         <div className="commandsTab">
-            <h3>List of commands submited through inputs tab</h3>
-            <button onClick={executeCommand}>Execute commands</button>
-            <div className="commandList">
+            <h2>List of commands</h2>
+            <button onClick={executeCommand}>execute commands</button>
+            <ul className="commandList">
                 {commands.map((object: object, key: number) => (
-                    <div className="highlightedCommand" key={key}>
-                        <h4 className="commandNumber">{`command${key + 1}:`}</h4>
+                    <li className="highlightedCommand" key={key}>
+                        <h5 className="commandNumber">{`command${key + 1}:`}</h5>
                         {Object.keys(object).map((key: string) => (
                             <div className="singleAngle" key={key}>
-                                <h4
+                                <h5
                                     className="highlightedAngle"
                                     style={{
                                         color: referenceColors[
                                             `referenceColor${key.replace("angle", "")}` as keyof referenceColorsState
                                         ],
                                     }}
-                                >{`${key}:`}</h4>
-                                <h4 className="highlightedValue"> {`${object[key as keyof object]}, `}</h4>
+                                >{`${key}:`}</h5>
+                                <h5 className="highlightedValue"> {`${object[key as keyof object]}, `}</h5>
                             </div>
                         ))}
-                    </div>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 };

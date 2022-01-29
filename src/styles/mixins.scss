@@ -41,6 +41,7 @@
     padding: 0.3rem 0.5rem;
     font-size: 1rem;
     color: var(--darkText);
+    white-space: nowrap;
     &:hover {
         cursor: pointer;
         background-color: var(--darkSecondaryLighter);

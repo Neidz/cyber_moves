@@ -35,7 +35,6 @@ export const MultipleAxis = () => {
         <div className="mainContainer">
             <div className="mainRender">
                 <Canvas>
-                    <axesHelper position={[1, 1, 1]} />
                     <OrbitControls />
                     <Suspense fallback={null}>
                         {arrayFromNumber(amountOfAxis).map((key: number) => {
