@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface optionsState {
     animationSpeed: number;
+    showButtons: boolean;
 }
 
 const initialState: optionsState = {
     animationSpeed: 1000,
+    showButtons: true,
 };
 
 export const optionsSlice = createSlice({
@@ -15,10 +17,14 @@ export const optionsSlice = createSlice({
         changeAnimationSpeed: (state, action: PayloadAction<number>) => {
             state.animationSpeed = action.payload;
         },
+        changeButtonsVisiblity: (state, action: PayloadAction<boolean>) => {
+            state.showButtons = action.payload;
+            console.log("y");
+        },
     },
 });
 
-export const { changeAnimationSpeed } = optionsSlice.actions;
+export const { changeAnimationSpeed, changeButtonsVisiblity } = optionsSlice.actions;
 
 export default optionsSlice.reducer;
 

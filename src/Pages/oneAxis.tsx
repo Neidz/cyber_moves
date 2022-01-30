@@ -17,6 +17,7 @@ export const OneAxis = () => {
     const { referenceColors, baseColor, activeColor, planeColor } = useSelector((state: RootState) => state.renderVisuals);
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const { animationSpeed } = useSelector((state: RootState) => state.options);
+    const { showButtons } = useSelector((state: RootState) => state.options);
     const changeTarget = useArrows();
     useAmountOfAxis(1);
     useCleanUp();
@@ -24,7 +25,7 @@ export const OneAxis = () => {
     return (
         <div className="mainContainer">
             <div className="mainRender">
-                <Canvas>
+                <Canvas camera={{ position: [0, 10, 10] }}>
                     <OrbitControls />
                     <Suspense fallback={null}>
                         <SimpleAxis
@@ -40,7 +41,7 @@ export const OneAxis = () => {
                 </Canvas>
             </div>
             <RenderMenu />
-            <OnScreenArrows />
+            {showButtons && <OnScreenArrows />}
         </div>
     );
 };

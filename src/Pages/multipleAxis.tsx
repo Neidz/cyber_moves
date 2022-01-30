@@ -26,7 +26,7 @@ export const MultipleAxis = () => {
     );
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const amountOfAxis = useSelector((state: RootState) => state.renderMenu.amountOfAxis);
-    const { animationSpeed } = useSelector((state: RootState) => state.options);
+    const { animationSpeed, showButtons } = useSelector((state: RootState) => state.options);
     const changeTarget = useArrows();
     useAmountOfAxis(9);
     useCleanUp();
@@ -34,7 +34,7 @@ export const MultipleAxis = () => {
     return (
         <div className="mainContainer">
             <div className="mainRender">
-                <Canvas>
+                <Canvas camera={{ position: [0, 10, 10] }}>
                     <OrbitControls />
                     <Suspense fallback={null}>
                         {arrayFromNumber(amountOfAxis).map((key: number) => {
@@ -66,7 +66,7 @@ export const MultipleAxis = () => {
                 </Canvas>
             </div>
             <RenderMenu />
-            <OnScreenArrows />
+            {showButtons && <OnScreenArrows />}
         </div>
     );
 };
