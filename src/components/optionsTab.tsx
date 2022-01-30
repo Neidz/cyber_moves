@@ -2,11 +2,12 @@ import "../styles/sections/optionsTab.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { changeControlSpeed } from "../store/features/keyControlSlice";
 import { RootState } from "../store/store";
-import { changeAnimationSpeed } from "../store/features/optionsSlice";
+import { changeAnimationSpeed, changeButtonsVisiblity } from "../store/features/optionsSlice";
 
 export const OptionsTab = () => {
     const { controlSpeed } = useSelector((state: RootState) => state.keyControl);
     const { animationSpeed } = useSelector((state: RootState) => state.options);
+    const { showButtons } = useSelector((state: RootState) => state.options);
     const dispatch = useDispatch();
 
     const handleControlSpeedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +35,11 @@ export const OptionsTab = () => {
                     max="5000"
                     onChange={(e) => handleAnimationSpeedChange(e)}
                 />
+            </div>
+            <div className="option">
+                <button onClick={() => dispatch(changeButtonsVisiblity(!showButtons))}>
+                    {showButtons ? "hide buttons on the bottom of the screen" : "show buttons on the bottom of the screen"}
+                </button>
             </div>
         </div>
     );

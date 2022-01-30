@@ -23,7 +23,9 @@ export const HowItWorksTab = () => {
                             <br />
                             <b>left arrow button</b> - decrease angle <br />
                             <b>right arrow button</b> - increase angle <br />
-                            <b>+ sign button</b> - creates command from current angles
+                            <b>+ sign button</b> - creates command from current angles <br />
+                            <b>play button</b> - starts sequence of moves created with commands, works the same as "execute
+                            commands" in comamnds tab
                         </p>
                     </li>
                 </ul>

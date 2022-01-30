@@ -17,7 +17,7 @@ export const RobotArm3dof = () => {
     const renderVisuals = useSelector((state: RootState) => state.renderVisuals);
     const { planeColor } = renderVisuals;
     const keyControl = useSelector((state: RootState) => state.keyControl);
-    const { animationSpeed } = useSelector((state: RootState) => state.options);
+    const { animationSpeed, showButtons } = useSelector((state: RootState) => state.options);
     const changeTarget = useArrows();
     useAmountOfAxis(3);
     useCleanUp();
@@ -25,7 +25,7 @@ export const RobotArm3dof = () => {
     return (
         <div className="mainContainer">
             <div className="mainRender">
-                <Canvas>
+                <Canvas camera={{ position: [45, 45, 20] }}>
                     <OrbitControls />
                     {/* states have to be passed through props because they can't be selected inside component in canvas */}
                     <Suspense fallback={null}>
@@ -48,7 +48,7 @@ export const RobotArm3dof = () => {
                 </Canvas>
             </div>
             <RenderMenu />
-            <OnScreenArrows />
+            {showButtons && <OnScreenArrows />}
         </div>
     );
 };

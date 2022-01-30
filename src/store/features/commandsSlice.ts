@@ -7,11 +7,21 @@ interface commandState {
     angle3?: number;
     angle4?: number;
     angle5?: number;
-    angle?: number;
+    angle6?: number;
     angle7?: number;
     angle8?: number;
     angle9?: number;
     angle10?: number;
+    angle11?: number;
+    angle12?: number;
+    angle13?: number;
+    angle14?: number;
+    angle15?: number;
+    angle16?: number;
+    angle17?: number;
+    angle18?: number;
+    angle19?: number;
+    angle20?: number;
 }
 
 interface commandsState {

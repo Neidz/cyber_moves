@@ -12,4 +12,7 @@
     .inputValue {
         padding-left: 25%;
     }
+    button {
+        @include mixins.button1;
+    }
 }
