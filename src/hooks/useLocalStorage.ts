@@ -41,5 +41,6 @@ export const useLocalStorage = () => {
         controlSpeedStorage && dispatch(changeControlSpeed(JSON.parse(controlSpeedStorage)));
         animationSpeedStorage && dispatch(changeAnimationSpeed(JSON.parse(animationSpeedStorage)));
         showButtonsStorage && dispatch(changeButtonsVisiblity(JSON.parse(showButtonsStorage)));
-    });
+        // eslint-disable-next-line
+    }, []);
 };
