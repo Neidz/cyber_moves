@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { referenceColorsState } from "../store/features/renderVisualsSlice";
 import { useCommand } from "../hooks/useCommand";
+import { ReactComponent as CopyIcon } from "../assets/icons/copyIcon.svg";
 
 export const CommandsTab = () => {
-    const commands = useSelector((state: RootState) => state.commands.commands);
+    const { commands } = useSelector((state: RootState) => state.commands);
     const referenceColors = useSelector((state: RootState) => state.renderVisuals.referenceColors);
     const executeCommand = useCommand();
 
@@ -33,6 +34,7 @@ export const CommandsTab = () => {
                     </li>
                 ))}
             </ul>
+            <CopyIcon className="copyIcon" onClick={() => navigator.clipboard.writeText(JSON.stringify(commands))} />
         </div>
     );
 };

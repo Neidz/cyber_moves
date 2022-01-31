@@ -32,7 +32,7 @@ interface commandsState {
 
 const initialState: commandsState = {
     commands: [],
-    createdBy: "unkown",
+    createdBy: "anon",
     category: "unkown",
 };
 

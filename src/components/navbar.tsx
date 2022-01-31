@@ -5,9 +5,11 @@ import { ReactComponent as RobotArm3dof } from "../assets/icons/robotArm3dof.svg
 import { ReactComponent as RobotArm4dof } from "../assets/icons/robotArm4dof.svg";
 import { ReactComponent as HomeIcon } from "../assets/icons/home-solid.svg";
 import { NavigateFunction, useNavigate } from "react-router";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const Navbar = () => {
     const navigate: NavigateFunction = useNavigate();
+    useLocalStorage();
 
     return (
         <div className="navbar">

@@ -5,6 +5,7 @@ import { changePlaneColor } from "../../store/features/renderVisualsSlice";
 import { RootState } from "../../store/store";
 import { colorChangeEvent } from "../../types";
 import { rgbObjectToString, rgbStringToObject } from "../../utils/rgbStringObject";
+import { updateStorage } from "../../utils/updateStorage";
 
 export const PlaneColorPicker = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,6 +20,7 @@ export const PlaneColorPicker = () => {
         const { a, ...colors } = e.rgb;
         const color = rgbObjectToString(colors);
         dispatch(changePlaneColor(color));
+        updateStorage("planeColor", color);
     };
 
     return (
