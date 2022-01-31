@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeControlSpeed } from "../store/features/keyControlSlice";
 import { RootState } from "../store/store";
 import { changeAnimationSpeed, changeButtonsVisiblity } from "../store/features/optionsSlice";
+import { updateStorage } from "../utils/updateStorage";
 
 export const OptionsTab = () => {
     const { controlSpeed } = useSelector((state: RootState) => state.keyControl);
@@ -12,9 +13,11 @@ export const OptionsTab = () => {
 
     const handleControlSpeedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(changeControlSpeed(parseInt(e.target.value)));
+        updateStorage("controlSpeed", e.target.value);
     };
     const handleAnimationSpeedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(changeAnimationSpeed(Math.ceil(parseInt(e.target.value) / 50) * 50));
+        updateStorage("animationSpeed", Math.ceil(parseInt(e.target.value) / 50) * 50);
     };
 
     return (

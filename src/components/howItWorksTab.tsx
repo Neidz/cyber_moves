@@ -5,6 +5,11 @@ export const HowItWorksTab = () => {
         <div className="howItWorksTab">
             <div className="section">
                 <h2>Controls</h2>
+                <p>
+                    You can move freely in 3d space using left and right mouse buttons on desktop / touching and holding 3d
+                    space with one or two fingers on mobile
+                </p>
+                <br />
                 <p>There are multiple ways to control angle of each axis</p>
                 <ul>
                     <li>
@@ -29,7 +34,6 @@ export const HowItWorksTab = () => {
                         </p>
                     </li>
                 </ul>
-
                 <h2>Tabs</h2>
                 <ul>
                     <li>
@@ -52,6 +56,7 @@ export const HowItWorksTab = () => {
                             Displays list of created commands. Color of each angle in a single command corresponds to color
                             of that element on the model and angle input in "angles" tab <br />
                             <b>execute commands</b> - starts sequence of moves created with commands
+                            <b>clipboard icon</b> - copies current commands to clipboard
                         </p>
                     </li>
                     <li>

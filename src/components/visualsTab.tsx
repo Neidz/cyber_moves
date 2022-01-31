@@ -6,9 +6,16 @@ import { arrayFromNumber } from "../utils/arrayFromNumber";
 import { PlaneColorPicker } from "./colorPickers/planeColorPicker";
 import { ActiveColorPicker } from "./colorPickers/activeColorPicker";
 import { BaseColorPicker } from "./colorPickers/baseColorPicker";
+import { useEffect } from "react";
+import { updateStorage } from "../utils/updateStorage";
 
 export const VisualsTab = () => {
     const { amountOfAxis } = useSelector((state: RootState) => state.renderMenu);
+    const { referenceColors } = useSelector((state: RootState) => state.renderVisuals);
+
+    useEffect(() => {
+        updateStorage("referenceColors", referenceColors);
+    }, [referenceColors]);
 
     return (
         <div className="visualsTab">

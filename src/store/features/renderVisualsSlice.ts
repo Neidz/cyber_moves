@@ -18,6 +18,16 @@ interface referenceColorsState {
     referenceColor8: string;
     referenceColor9: string;
     referenceColor10: string;
+    referenceColor11: string;
+    referenceColor12: string;
+    referenceColor13: string;
+    referenceColor14: string;
+    referenceColor15: string;
+    referenceColor16: string;
+    referenceColor17: string;
+    referenceColor18: string;
+    referenceColor19: string;
+    referenceColor20: string;
 }
 interface renderVisualsState {
     baseColor: string;
@@ -45,6 +55,16 @@ const referenceColorsInitial = {
     referenceColor8: "rgb(127, 40, 213)",
     referenceColor9: "rgb(214, 0, 222)",
     referenceColor10: "rgb(222, 0, 89)",
+    referenceColor11: "rgb(222, 0, 0)",
+    referenceColor12: "rgb(219, 138, 42)",
+    referenceColor13: "rgb(200, 222, 0)",
+    referenceColor14: "rgb(91, 255, 7)",
+    referenceColor15: "rgb(0, 222, 128)",
+    referenceColor16: "rgb(10, 107, 253)",
+    referenceColor17: "rgb(0, 26, 222)",
+    referenceColor18: "rgb(127, 40, 213)",
+    referenceColor19: "rgb(214, 0, 222)",
+    referenceColor20: "rgb(222, 0, 89)",
 };
 
 const initialState: renderVisualsState = {
@@ -77,18 +97,27 @@ export const renderVisualsSlice = createSlice({
             state.activeColor = action.payload;
         },
         changeReferenceColor: (state, action: PayloadAction<[referenceIndex: number, newColor: string]>) => {
-            if (action.payload[0] > 0 && action.payload[0] < 11) {
+            if (action.payload[0] > 0 && action.payload[0] < 21) {
                 const referenceEntry = `referenceColor${action.payload[0]}`;
                 state.referenceColors[referenceEntry as keyof referenceColorsState] = action.payload[1];
             } else {
                 console.log("wrong referenceColor choosen");
             }
         },
+        changeAllReferenceColors: (state, action: PayloadAction<referenceColorsState>) => {
+            state.referenceColors = action.payload;
+        },
     },
 });
 
-export const { changeBaseColor, changeDeviceColor, changePlaneColor, changeReferenceColor, changeActiveColor } =
-    renderVisualsSlice.actions;
+export const {
+    changeBaseColor,
+    changeDeviceColor,
+    changePlaneColor,
+    changeReferenceColor,
+    changeActiveColor,
+    changeAllReferenceColors,
+} = renderVisualsSlice.actions;
 
 export default renderVisualsSlice.reducer;
 

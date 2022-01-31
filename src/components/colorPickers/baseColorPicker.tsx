@@ -5,6 +5,7 @@ import { changeBaseColor } from "../../store/features/renderVisualsSlice";
 import { RootState } from "../../store/store";
 import { colorChangeEvent } from "../../types";
 import { rgbObjectToString, rgbStringToObject } from "../../utils/rgbStringObject";
+import { updateStorage } from "../../utils/updateStorage";
 
 export const BaseColorPicker = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,6 +20,7 @@ export const BaseColorPicker = () => {
         const { a, ...colors } = e.rgb;
         const color = rgbObjectToString(colors);
         dispatch(changeBaseColor(color));
+        updateStorage("baseColor", color);
     };
 
     return (
