@@ -1,16 +1,16 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { modelRef } from "../types";
 
 export const MainpageCamera = () => {
     const cameraRef: React.MutableRefObject<undefined> | modelRef = useRef();
+    const [direction, setDirection] = useState<"right" | "left">("right");
     const startingPositionX = -33;
     const startingRotationY = 0;
     const rotationSpeed = 0.0005;
     const positionSpeed = 0.03;
     const maxPositionChange = 15;
-    let direction = "right";
 
     useFrame(() => {
         if (cameraRef !== undefined && cameraRef.current) {
@@ -18,13 +18,13 @@ export const MainpageCamera = () => {
                 cameraRef.current.rotation.y += rotationSpeed;
                 cameraRef.current.position.x += positionSpeed;
                 if (cameraRef.current.position.x > startingPositionX + maxPositionChange) {
-                    direction = "left";
+                    setDirection("left");
                 }
             } else {
                 cameraRef.current.rotation.y -= rotationSpeed;
                 cameraRef.current.position.x -= positionSpeed;
                 if (cameraRef.current.position.x < startingPositionX - maxPositionChange) {
-                    direction = "right";
+                    setDirection("right");
                 }
             }
         }
