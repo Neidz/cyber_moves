@@ -4,7 +4,7 @@ import { ReactComponent as ArrowCircleRight } from "../assets/icons/arrow-circle
 import { ReactComponent as PlusCircle } from "../assets/icons/plus-circle.svg";
 import { ReactComponent as PlayCircle } from "../assets/icons/play-circle.svg";
 import { useState } from "react";
-import useInterval from "../hooks/useInterval";
+import { useInterval } from "../hooks/useInterval";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { addAngles } from "../store/features/anglesSlice";
