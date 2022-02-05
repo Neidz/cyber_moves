@@ -1,7 +1,7 @@
-import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import { MainpageScene } from "../modelFiles/mainpageScene";
+import { MainpageCamera } from "../3dComponents/mainpageCamera";
+import { MainpageScene } from "../3dComponents/mainpageScene";
 import "../styles/sections/mainpage.scss";
 
 export const Mainpage = () => {
@@ -9,9 +9,9 @@ export const Mainpage = () => {
         <div className="mainpage">
             <div className="mainContainer">
                 <div className="mainRender">
-                    <Canvas shadows>
+                    <Canvas>
+                        <MainpageCamera />
                         <ambientLight intensity={0.7} />
-                        <OrbitControls />
                         <Suspense fallback={null}>
                             <MainpageScene />
                         </Suspense>

@@ -1,4 +1,7 @@
 // changes rgb or rgba object to rgb string
+
+import { Color } from "three";
+
 // {r: 120, g: 121, b: 122, a: 1} => returns "rgba(120,121,122,1)"
 export const rgbObjectToString = (rgb: { r: number; g: number; b: number; a?: number }) => {
     if (rgb.a) {
@@ -51,4 +54,32 @@ export const rgbStringToObjectFraction = (rgb: string) => {
 
     console.log("wrong value for rgb function");
     return null;
+};
+
+// changes rgb or rgba string to Color for three.js
+export const rgbStringToColor = (rgb: string) => {
+    const regexA = /a/;
+
+    if (rgb.match(regexA)) {
+        const colorsRegex = /rgba\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3}),\s?(\d{1}\.?\d+?)\)/;
+        const matchedColors = colorsRegex.exec(rgb);
+        const r = matchedColors && matchedColors[1];
+        const g = matchedColors && matchedColors[2];
+        const b = matchedColors && matchedColors[3];
+        const a = matchedColors && matchedColors[4];
+        if (r !== undefined && r && g !== undefined && g && b !== undefined && b && a !== undefined && a) {
+            return new Color(parseInt(r) / 255, parseInt(g) / 255, parseInt(b) / 255);
+        }
+    } else {
+        const colorsRegex = /rgb\((\d{1,3}),\s?(\d{1,3}),\s?(\d{1,3})\)/;
+        const matchedColors = colorsRegex.exec(rgb);
+        const r = matchedColors && matchedColors[1];
+        const g = matchedColors && matchedColors[2];
+        const b = matchedColors && matchedColors[3];
+        if (r !== undefined && r && g !== undefined && g && b !== undefined && b) {
+            return new Color(parseInt(r) / 255, parseInt(g) / 255, parseInt(b) / 255);
+        }
+    }
+    console.log("wrong value for rgb function");
+    return new Color(1, 1, 1);
 };

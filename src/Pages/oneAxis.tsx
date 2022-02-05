@@ -3,9 +3,8 @@ import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import { SimpleAxis } from "../modelFiles/simpleAxis";
-import { Lamp } from "../modelFiles/lamp";
-import { Plane } from "../modelFiles/plane";
+import { SimpleAxis } from "../3dComponents/simpleAxis";
+import { Plane } from "../3dComponents/plane";
 import { useArrows } from "../hooks/useArrows";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
@@ -35,7 +34,6 @@ export const OneAxis = () => {
                             onClick={() => changeTarget(1)}
                             animationSpeed={animationSpeed}
                         />
-                        <Lamp position={[2, 0, 2]} lightColor={referenceColors.referenceColor1} baseColor={baseColor} />
                         <Plane position={[0, -3, 0]} planeColor={planeColor} />
                     </Suspense>
                 </Canvas>
