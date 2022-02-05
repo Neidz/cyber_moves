@@ -7,8 +7,8 @@ import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
 import { useCleanUp } from "../hooks/useCleanUp";
-import { Plane } from "../modelFiles/plane";
-import { RobotArm } from "../modelFiles/robots/robotArm";
+import { Plane } from "../3dComponents/plane";
+import { RobotArm } from "../3dComponents/robotArm";
 import { RootState } from "../store/store";
 
 // the same model as RobotArm3dof but last arm is cut and model reused
@@ -36,14 +36,7 @@ export const RobotArm3dof = () => {
                             changeTarget={changeTarget}
                             animationSpeed={animationSpeed}
                         />
-                        <Plane
-                            planeColor={planeColor}
-                            angles={angles}
-                            renderVisuals={renderVisuals}
-                            keyControl={keyControl}
-                            changeTarget={changeTarget}
-                            animationSpeed={animationSpeed}
-                        />
+                        <Plane planeColor={planeColor} />
                     </Suspense>
                 </Canvas>
             </div>

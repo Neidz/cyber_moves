@@ -42,7 +42,6 @@ export const HowItWorksTab = () => {
                             Displays current angles for each axis allowing user to change them. Color of text is the same as
                             color on model which allows easier identification for larger models
                             <br />
-                            <br />
                             <b>zero all angles</b> - sets all angles to 0
                             <br />
                             <b>add command</b> - creates command from current angles, commands can be find in commands tab

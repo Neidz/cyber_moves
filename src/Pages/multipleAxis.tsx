@@ -1,29 +1,23 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { useSelector } from "react-redux";
 import { OnScreenArrows } from "../components/onScreenArrows";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
 import { useCleanUp } from "../hooks/useCleanUp";
-import { Lamp } from "../modelFiles/lamp";
-import { Plane } from "../modelFiles/plane";
-import { SimpleAxis } from "../modelFiles/simpleAxis";
+import { Plane } from "../3dComponents/plane";
+import { SimpleAxis } from "../3dComponents/simpleAxis";
 import { anglesState } from "../store/features/anglesSlice";
-import { deviceColorsState, referenceColorsState } from "../store/features/renderVisualsSlice";
+import { referenceColorsState } from "../store/features/renderVisualsSlice";
 import { RootState } from "../store/store";
 import { arrayFromNumber } from "../utils/arrayFromNumber";
 import { calculateLayout } from "../utils/calculateLayout";
 
 export const MultipleAxis = () => {
-    // eslint-disable-next-line
-    const [amountOfDevices, setAmountOfDevices] = useState<number>(5);
-
     const angles = useSelector((state: RootState) => state.angles);
-    const { referenceColors, baseColor, activeColor, planeColor, deviceColors } = useSelector(
-        (state: RootState) => state.renderVisuals
-    );
+    const { referenceColors, baseColor, activeColor, planeColor } = useSelector((state: RootState) => state.renderVisuals);
     const { isActive, whichActive } = useSelector((state: RootState) => state.keyControl);
     const amountOfAxis = useSelector((state: RootState) => state.renderMenu.amountOfAxis);
     const { animationSpeed, showButtons } = useSelector((state: RootState) => state.options);
@@ -47,16 +41,6 @@ export const MultipleAxis = () => {
                                     targetAngle={angles[`angle${key}` as keyof anglesState]}
                                     onClick={() => changeTarget(key)}
                                     animationSpeed={animationSpeed}
-                                />
-                            );
-                        })}
-                        {arrayFromNumber(amountOfDevices).map((key: number) => {
-                            return (
-                                <Lamp
-                                    position={calculateLayout(amountOfDevices, key, "lamp", 2)}
-                                    lightColor={deviceColors[`deviceColor${key}` as keyof deviceColorsState]}
-                                    baseColor={baseColor}
-                                    key={key}
                                 />
                             );
                         })}
