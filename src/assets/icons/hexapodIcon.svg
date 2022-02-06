@@ -1,0 +1,60 @@
+<svg width="268" height="242" viewBox="0 0 268 242" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <g id="hexapodIcon">
+        <ellipse id="Ellipse 3" cx="133.5" cy="120.5" rx="38.5" ry="70.5" fill="currentColor" />
+        <g id="leg">
+            <path id="Vector 1" d="M220 110.5L179 103V119.5V136L220 128.5V119.5V110.5Z" fill="currentColor" />
+            <path id="Vector 2" d="M253 114.864L222 111V119.5V128L253 124.136V119.5V114.864Z" fill="currentColor" />
+            <path id="Vector 3" d="M268 117.045L255 115V119.5V124L268 121.955V119.5V117.045Z" fill="currentColor" />
+        </g>
+        <g id="leg_2">
+            <path id="Vector 1_2" d="M48 112.5L89 105V121.5V138L48 130.5V121.5V112.5Z" fill="currentColor" />
+            <path id="Vector 2_2" d="M15 116.864L46 113V121.5V130L15 126.136V121.5V116.864Z" fill="currentColor" />
+            <path id="Vector 3_2" d="M1.78814e-07 119.045L13 117V121.5V126L1.78814e-07 123.955V121.5V119.045Z"
+                fill="currentColor" />
+        </g>
+        <g id="leg_3">
+            <path id="Vector 1_3"
+                d="M69.9455 35.6753L107.833 53.0483L98.3686 66.5643L88.9046 80.0803L59.6211 50.42L64.7833 43.0477L69.9455 35.6753Z"
+                fill="currentColor" />
+            <path id="Vector 2_3"
+                d="M40.4106 20.3217L68.0204 34.9377L63.145 41.9005L58.2696 48.8633L35.092 27.9175L37.7513 24.1196L40.4106 20.3217Z"
+                fill="currentColor" />
+            <path id="Vector 3_3"
+                d="M26.8719 13.5054L38.6941 19.2863L36.113 22.9725L33.5319 26.6587L24.0562 17.5267L25.464 15.516L26.8719 13.5054Z"
+                fill="currentColor" />
+        </g>
+        <g id="leg_4">
+            <path id="Vector 1_4"
+                d="M197.887 33.6753L160 51.0483L169.464 64.5643L178.928 78.0803L208.211 48.42L203.049 41.0477L197.887 33.6753Z"
+                fill="currentColor" />
+            <path id="Vector 2_4"
+                d="M227.422 18.3217L199.812 32.9377L204.688 39.9005L209.563 46.8633L232.741 25.9175L230.081 22.1196L227.422 18.3217Z"
+                fill="currentColor" />
+            <path id="Vector 3_4"
+                d="M240.961 11.5054L229.138 17.2863L231.72 20.9725L234.301 24.6587L243.776 15.5267L242.369 13.516L240.961 11.5054Z"
+                fill="currentColor" />
+        </g>
+        <g id="leg_5">
+            <path id="Vector 1_5"
+                d="M69.9455 207.405L107.833 190.032L98.3686 176.516L88.9046 163L59.6211 192.66L64.7833 200.033L69.9455 207.405Z"
+                fill="currentColor" />
+            <path id="Vector 2_5"
+                d="M40.4106 222.759L68.0204 208.143L63.145 201.18L58.2696 194.217L35.092 215.163L37.7513 218.961L40.4106 222.759Z"
+                fill="currentColor" />
+            <path id="Vector 3_5"
+                d="M26.8719 229.575L38.6941 223.794L36.113 220.108L33.5319 216.422L24.0562 225.554L25.464 227.564L26.8719 229.575Z"
+                fill="currentColor" />
+        </g>
+        <g id="leg_6">
+            <path id="Vector 1_6"
+                d="M197.887 205.405L160 188.032L169.464 174.516L178.928 161L208.211 190.66L203.049 198.033L197.887 205.405Z"
+                fill="currentColor" />
+            <path id="Vector 2_6"
+                d="M227.422 220.759L199.812 206.143L204.688 199.18L209.563 192.217L232.741 213.163L230.081 216.961L227.422 220.759Z"
+                fill="currentColor" />
+            <path id="Vector 3_6"
+                d="M240.961 227.575L229.138 221.794L231.72 218.108L234.301 214.422L243.776 223.554L242.369 225.564L240.961 227.575Z"
+                fill="currentColor" />
+        </g>
+    </g>
+</svg>

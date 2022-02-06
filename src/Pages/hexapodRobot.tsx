@@ -22,7 +22,7 @@ export const HexapodRobotPage = () => {
     return (
         <div className="mainContainer">
             <div className="mainRender">
-                <Canvas camera={{ position: [5, 15, 25] }}>
+                <Canvas camera={{ position: [5, 15, 15] }}>
                     <OrbitControls />
                     <Suspense fallback={null}>
                         <HexapodRobot

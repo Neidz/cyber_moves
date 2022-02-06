@@ -109,6 +109,10 @@ export const HexapodRobot = (props: JSX.IntrinsicElements["group"] & hexapodRobo
     const leg6middle = useRef<THREE.Group>();
     const leg6tip = useRef<THREE.Group>();
 
+    // smoothRotation causes parts of the robot to slowly travel to choosen position
+    // few models have added offset on top of choosen angle because rotation to that model was not apllied in blender
+    // I do this that way because it allows me to have predictable rotation in z axis (in blender y axis) even tho the models are rotated
+    // by different angles in y axis (z axis in blender), legs in the middle are located directly on axis x so they don't need offset
     useFrame(() => {
         smoothRotation(leg1base, angles.angle1 + toAngle(-2.36), "z", props.animationSpeed);
         smoothRotation(leg1middle, angles.angle2, "z", props.animationSpeed);
@@ -135,6 +139,7 @@ export const HexapodRobot = (props: JSX.IntrinsicElements["group"] & hexapodRobo
         smoothRotation(leg6tip, angles.angle18, "z", props.animationSpeed);
     });
 
+    // changing emissive color of stripes on model so that it can be changed in visuals tab
     materials.leg1baseEmissive.emissive = rgbStringToColor(referenceColors.referenceColor1);
     materials.leg1middleEmissive.emissive = rgbStringToColor(referenceColors.referenceColor2);
     materials.leg1tipEmissive.emissive = rgbStringToColor(referenceColors.referenceColor3);

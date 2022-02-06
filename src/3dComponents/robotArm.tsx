@@ -54,6 +54,7 @@ export const RobotArm = (props: JSX.IntrinsicElements["group"] & robotArmProps) 
     const secondArm = useRef();
     const thirdArm = useRef();
 
+    // smoothRotation causes parts of the robot to slowly travel to choosen position
     useFrame(() => {
         smoothRotation(base, angles.angle1, "y", props.animationSpeed);
         smoothRotation(firstArm, angles.angle2, "x", props.animationSpeed);
@@ -61,6 +62,7 @@ export const RobotArm = (props: JSX.IntrinsicElements["group"] & robotArmProps) 
         smoothRotation(thirdArm, angles.angle4, "x", props.animationSpeed);
     });
 
+    // changing emissive color of stripes on model so that it can be changed in visuals tab
     materials.baseEmissive.emissive = rgbStringToColor(referenceColors.referenceColor1);
     materials.firstArmEmissive.emissive = rgbStringToColor(referenceColors.referenceColor2);
     materials.secondArmEmissive.emissive = rgbStringToColor(referenceColors.referenceColor3);

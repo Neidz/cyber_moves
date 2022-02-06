@@ -4,6 +4,7 @@ import { ReactComponent as MultipleAxisIcon } from "../assets/icons/multipleAxis
 import { ReactComponent as RobotArm3dof } from "../assets/icons/robotArm3dof.svg";
 import { ReactComponent as RobotArm4dof } from "../assets/icons/robotArm4dof.svg";
 import { ReactComponent as HomeIcon } from "../assets/icons/home-solid.svg";
+import { ReactComponent as HexapodIcon } from "../assets/icons/hexapodIcon.svg";
 import { NavigateFunction, useNavigate } from "react-router";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
@@ -18,7 +19,7 @@ export const Navbar = () => {
             <MultipleAxisIcon onClick={() => navigate("/multipleAxis")} />
             <RobotArm3dof onClick={() => navigate("/robotArm3dof")} />
             <RobotArm4dof onClick={() => navigate("/robotArm4dof")} />
-            <HomeIcon onClick={() => navigate("/hexapodRobot")} />
+            <HexapodIcon onClick={() => navigate("/hexapodRobot")} />
         </div>
     );
 };
