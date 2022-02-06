@@ -9,6 +9,7 @@ import { Mainpage } from "./Pages/mainpage";
 import { MultipleAxis } from "./Pages/multipleAxis";
 import { RobotArm4dof } from "./Pages/robotArm4dof";
 import { RobotArm3dof } from "./Pages/robotArm3dof";
+import { HexapodRobotPage } from "./Pages/hexapodRobot";
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/multipleAxis" element={<MultipleAxis />} />
                     <Route path="/robotArm3dof" element={<RobotArm3dof />} />
                     <Route path="/robotArm4dof" element={<RobotArm4dof />} />
+                    <Route path="/hexapodRobot" element={<HexapodRobotPage />} />
                 </Routes>
             </Router>
         </div>

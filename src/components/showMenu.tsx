@@ -11,19 +11,19 @@ export const ShowMenu = () => {
     if (hidden) {
         return (
             <div className="showMenuSpacer">
-                <div className="showMenu" style={{ transform: "scale(1.2)" }}>
-                    <TriangleRight
-                        id="triangleRight"
-                        style={{ transform: "rotate(180deg)" }}
-                        onClick={() => dispatch(changeHidden(!hidden))}
-                    />
+                <div
+                    className="showMenu"
+                    style={{ transform: "scale(1.2)" }}
+                    onClick={() => dispatch(changeHidden(!hidden))}
+                >
+                    <TriangleRight id="triangleRight" style={{ transform: "rotate(180deg)" }} />
                 </div>
             </div>
         );
     } else {
         return (
-            <div className="showMenu">
-                <TriangleRight id="triangleRight" onClick={() => dispatch(changeHidden(!hidden))} />
+            <div className="showMenu" onClick={() => dispatch(changeHidden(!hidden))}>
+                <TriangleRight id="triangleRight" />
             </div>
         );
     }
