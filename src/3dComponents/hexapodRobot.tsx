@@ -547,14 +547,14 @@ export const HexapodRobot = (props: JSX.IntrinsicElements["group"] & hexapodRobo
                             />
                         </group>
                         <group ref={leg4tip} name="leg4tip" position={[1.95, -0.11, 0]} scale={[0.13, 0.24, 0.24]}>
-                            <group onClick={() => props.changeTarget(11)}>
+                            <group onClick={() => props.changeTarget(12)}>
                                 <mesh
                                     name="leg4tip_1"
                                     castShadow
                                     receiveShadow
                                     geometry={nodes.leg4tip_1.geometry}
                                     material={
-                                        isActive && whichActive === 11
+                                        isActive && whichActive === 12
                                             ? new MeshBasicMaterial({ color: activeColor })
                                             : new MeshBasicMaterial({ color: baseColor })
                                     }
