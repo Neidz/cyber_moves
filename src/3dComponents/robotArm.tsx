@@ -56,14 +56,8 @@ export const RobotArm = (props: JSX.IntrinsicElements["group"] & robotArmProps) 
 
     useFrame(() => {
         smoothRotation(base, angles.angle1, "y", props.animationSpeed);
-    });
-    useFrame(() => {
         smoothRotation(firstArm, angles.angle2, "x", props.animationSpeed);
-    });
-    useFrame(() => {
         smoothRotation(secondArm, angles.angle3, "x", props.animationSpeed);
-    });
-    useFrame(() => {
         smoothRotation(thirdArm, angles.angle4, "x", props.animationSpeed);
     });
 

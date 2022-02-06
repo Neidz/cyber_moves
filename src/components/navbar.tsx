@@ -18,6 +18,7 @@ export const Navbar = () => {
             <MultipleAxisIcon onClick={() => navigate("/multipleAxis")} />
             <RobotArm3dof onClick={() => navigate("/robotArm3dof")} />
             <RobotArm4dof onClick={() => navigate("/robotArm4dof")} />
+            <HomeIcon onClick={() => navigate("/hexapodRobot")} />
         </div>
     );
 };
