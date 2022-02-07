@@ -56,9 +56,9 @@ export const RobotArm = (props: JSX.IntrinsicElements["group"] & robotArmProps) 
 
     // smoothRotation causes parts of the robot to slowly travel to choosen position
     useFrame(() => {
-        smoothRotation(base, angles.angle1, "y", props.animationSpeed);
+        smoothRotation(base, -angles.angle1, "y", props.animationSpeed);
         smoothRotation(firstArm, angles.angle2, "x", props.animationSpeed);
-        smoothRotation(secondArm, angles.angle3, "x", props.animationSpeed);
+        smoothRotation(secondArm, -angles.angle3, "x", props.animationSpeed);
         smoothRotation(thirdArm, angles.angle4, "x", props.animationSpeed);
     });
 

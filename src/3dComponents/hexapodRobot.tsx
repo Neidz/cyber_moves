@@ -115,28 +115,28 @@ export const HexapodRobot = (props: JSX.IntrinsicElements["group"] & hexapodRobo
     // by different angles in y axis (z axis in blender), legs in the middle are located directly on axis x so they don't need offset
     useFrame(() => {
         smoothRotation(leg1base, angles.angle1 + toAngle(-2.36), "z", props.animationSpeed);
-        smoothRotation(leg1middle, angles.angle2, "z", props.animationSpeed);
-        smoothRotation(leg1tip, angles.angle3, "z", props.animationSpeed);
+        smoothRotation(leg1middle, -angles.angle2, "z", props.animationSpeed);
+        smoothRotation(leg1tip, -angles.angle3, "z", props.animationSpeed);
 
         smoothRotation(leg2base, angles.angle4 + toAngle(-Math.PI / 4), "z", props.animationSpeed);
-        smoothRotation(leg2middle, angles.angle5, "z", props.animationSpeed);
-        smoothRotation(leg2tip, angles.angle6, "z", props.animationSpeed);
+        smoothRotation(leg2middle, -angles.angle5, "z", props.animationSpeed);
+        smoothRotation(leg2tip, -angles.angle6, "z", props.animationSpeed);
 
         smoothRotation(leg3base, angles.angle7 + toAngle(Math.PI), "z", props.animationSpeed);
-        smoothRotation(leg3middle, angles.angle8, "z", props.animationSpeed);
-        smoothRotation(leg3tip, angles.angle9, "z", props.animationSpeed);
+        smoothRotation(leg3middle, -angles.angle8, "z", props.animationSpeed);
+        smoothRotation(leg3tip, -angles.angle9, "z", props.animationSpeed);
 
         smoothRotation(leg4base, angles.angle10, "z", props.animationSpeed);
-        smoothRotation(leg4middle, angles.angle11, "z", props.animationSpeed);
-        smoothRotation(leg4tip, angles.angle12, "z", props.animationSpeed);
+        smoothRotation(leg4middle, -angles.angle11, "z", props.animationSpeed);
+        smoothRotation(leg4tip, -angles.angle12, "z", props.animationSpeed);
 
         smoothRotation(leg5base, angles.angle13 + toAngle(2.36), "z", props.animationSpeed);
-        smoothRotation(leg5middle, angles.angle14, "z", props.animationSpeed);
-        smoothRotation(leg5tip, angles.angle15, "z", props.animationSpeed);
+        smoothRotation(leg5middle, -angles.angle14, "z", props.animationSpeed);
+        smoothRotation(leg5tip, -angles.angle15, "z", props.animationSpeed);
 
         smoothRotation(leg6base, angles.angle16 + toAngle(Math.PI / 4), "z", props.animationSpeed);
-        smoothRotation(leg6middle, angles.angle17, "z", props.animationSpeed);
-        smoothRotation(leg6tip, angles.angle18, "z", props.animationSpeed);
+        smoothRotation(leg6middle, -angles.angle17, "z", props.animationSpeed);
+        smoothRotation(leg6tip, -angles.angle18, "z", props.animationSpeed);
     });
 
     // changing emissive color of stripes on model so that it can be changed in visuals tab
