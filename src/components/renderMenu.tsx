@@ -4,6 +4,7 @@ import "../styles/sections/renderMenu.scss";
 import { AngleInputsTab } from "./angleInputsTab";
 import { CommandsTab } from "./commandsTab";
 import { HowItWorksTab } from "./howItWorksTab";
+import { LimitsTab } from "./limitsTab";
 import { MenuTabs } from "./menuTabs";
 import { OptionsTab } from "./optionsTab";
 import { ShowMenu } from "./showMenu";
@@ -24,6 +25,7 @@ export const RenderMenu = () => {
                 {currentTab === "options" && <OptionsTab />}
                 {currentTab === "visuals" && <VisualsTab />}
                 {currentTab === "how it works" && <HowItWorksTab />}
+                {currentTab === "limits" && <LimitsTab />}
             </div>
         );
     }

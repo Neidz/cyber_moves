@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type currentTab = "angles" | "commands" | "visuals" | "options" | "how it works";
+type currentTab = "angles" | "commands" | "visuals" | "options" | "how it works" | "limits";
 
 interface renderMenuState {
     currentTab: currentTab;
