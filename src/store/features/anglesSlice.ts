@@ -65,15 +65,31 @@ export const anglesSlice = createSlice({
                 console.log("wrong angle choosen");
             }
         },
-        zeroAllAngles: (state) => {
-            for (let i = 0; i < 21; i++) {
-                state[`angle${i}` as keyof anglesState] = 0;
+        addAnglesWithLimits: (
+            state,
+            action: PayloadAction<[angleIndex: number, addValue: number, minValue: number, maxValue: number]>
+        ) => {
+            if (action.payload[0] > 0 && action.payload[0] < 21) {
+                const angleEntry = `angle${action.payload[0]}`;
+                // checking if adding value to angle doesn't go over limits
+                if (state[angleEntry as keyof anglesState] + action.payload[1] > action.payload[3]) {
+                    state[angleEntry as keyof anglesState] = action.payload[3];
+                } else if (state[angleEntry as keyof anglesState] + action.payload[1] < action.payload[2]) {
+                    state[angleEntry as keyof anglesState] = action.payload[2];
+                } else {
+                    state[angleEntry as keyof anglesState] = state[angleEntry as keyof anglesState] + action.payload[1];
+                }
+            } else {
+                console.log("wrong angle choosen");
             }
+        },
+        zeroAllAngles: (state) => {
+            state = initialState;
         },
     },
 });
 
-export const { changeAngles, addAngles, zeroAllAngles } = anglesSlice.actions;
+export const { changeAngles, addAngles, zeroAllAngles, addAnglesWithLimits } = anglesSlice.actions;
 
 export default anglesSlice.reducer;
 

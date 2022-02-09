@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { changeControlSpeed } from "../store/features/keyControlSlice";
-import { changeAnimationSpeed, changeButtonsVisiblity } from "../store/features/optionsSlice";
+import { changeAnimationSpeed, changeButtonsVisiblity, changeLimitsOn } from "../store/features/optionsSlice";
 import {
     changeActiveColor,
     changeAllReferenceColors,
@@ -16,7 +16,8 @@ export type localStorageItems =
     | "activeColor"
     | "controlSpeed"
     | "animationSpeed"
-    | "showButtons";
+    | "showButtons"
+    | "limitsOn";
 
 // updates redux store with values from localstorage
 export const useLocalStorage = () => {
@@ -30,6 +31,7 @@ export const useLocalStorage = () => {
     // from options
     const animationSpeedStorage = localStorage.getItem("animationSpeed");
     const showButtonsStorage = localStorage.getItem("showButtons");
+    const limitsOnStorage = localStorage.getItem("limitsOn");
 
     const dispatch = useDispatch();
 
@@ -41,6 +43,7 @@ export const useLocalStorage = () => {
         controlSpeedStorage && dispatch(changeControlSpeed(JSON.parse(controlSpeedStorage)));
         animationSpeedStorage && dispatch(changeAnimationSpeed(JSON.parse(animationSpeedStorage)));
         showButtonsStorage && dispatch(changeButtonsVisiblity(JSON.parse(showButtonsStorage)));
+        limitsOnStorage && dispatch(changeLimitsOn(JSON.parse(limitsOnStorage)));
         // eslint-disable-next-line
     }, []);
 };

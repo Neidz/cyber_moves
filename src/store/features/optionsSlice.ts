@@ -5,12 +5,14 @@ interface optionsState {
     animationSpeed: number;
     showButtons: boolean;
     deviceSize: deviceSizeType;
+    limitsOn: boolean;
 }
 
 const initialState: optionsState = {
     animationSpeed: 1000,
     showButtons: true,
     deviceSize: "big",
+    limitsOn: false,
 };
 
 export const optionsSlice = createSlice({
@@ -27,10 +29,13 @@ export const optionsSlice = createSlice({
         changeDeviceSize: (state, action: PayloadAction<deviceSizeType>) => {
             state.deviceSize = action.payload;
         },
+        changeLimitsOn: (state, action: PayloadAction<boolean>) => {
+            state.limitsOn = action.payload;
+        },
     },
 });
 
-export const { changeAnimationSpeed, changeButtonsVisiblity, changeDeviceSize } = optionsSlice.actions;
+export const { changeAnimationSpeed, changeButtonsVisiblity, changeDeviceSize, changeLimitsOn } = optionsSlice.actions;
 
 export default optionsSlice.reducer;
 

@@ -1,21 +1,33 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addAngles } from "../store/features/anglesSlice";
+import { addAngles, addAnglesWithLimits } from "../store/features/anglesSlice";
 import { changeIsActive, changeWhichActive } from "../store/features/keyControlSlice";
+import { limitsState } from "../store/features/limitsSlice";
 import { RootState } from "../store/store";
 
 export const useArrows = () => {
     const { whichActive, isActive, controlSpeed } = useSelector((state: RootState) => state.keyControl);
+    const { limits } = useSelector((state: RootState) => state);
+    const { limitsOn } = useSelector((state: RootState) => state.options);
     const dispatch = useDispatch();
+    const limitsForActive = limits[`angle${whichActive}` as keyof limitsState];
 
     const arrowsListener = (e: KeyboardEvent) => {
         if (isActive && whichActive) {
             // left arrow click/hold lowers the angle so model rotates "to the left"
             if (e.key === "ArrowLeft") {
-                dispatch(addAngles([whichActive, -controlSpeed]));
+                if (limitsOn) {
+                    dispatch(addAnglesWithLimits([whichActive, -controlSpeed, limitsForActive[0], limitsForActive[1]]));
+                } else {
+                    dispatch(addAngles([whichActive, -controlSpeed]));
+                }
                 // right arrow click/hold increases the angle so model rotates "to the right"
             } else if (e.key === "ArrowRight") {
-                dispatch(addAngles([whichActive, controlSpeed]));
+                if (limitsOn) {
+                    dispatch(addAnglesWithLimits([whichActive, controlSpeed, limitsForActive[0], limitsForActive[1]]));
+                } else {
+                    dispatch(addAngles([whichActive, controlSpeed]));
+                }
                 // clicking escape removes event listener so arrows no longer do anything
             } else if (e.key === "Escape") {
                 dispatch(changeIsActive(false));

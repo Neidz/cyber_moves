@@ -50,11 +50,21 @@ export const HowItWorksTab = () => {
                         </p>
                     </li>
                     <li>
+                        <h3>limits</h3>
+                        <p>
+                            Displays current limits for movement for each axis. If user tries to change axis angle to
+                            something outside of those limits then nothing will happen
+                            <br />
+                            <b>turn limits off/on</b> - disables/activates limits
+                        </p>
+                    </li>
+                    <li>
                         <h3>commands</h3>
                         <p>
                             Displays list of created commands. Color of each angle in a single command corresponds to color
                             of that element on the model and angle input in "angles" tab <br />
                             <b>execute commands</b> - starts sequence of moves created with commands
+                            <br />
                             <b>clipboard icon</b> - copies current commands to clipboard
                         </p>
                     </li>

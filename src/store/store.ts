@@ -6,6 +6,7 @@ import renderVisualsReducer from "./features/renderVisualsSlice";
 import keyControlReducer from "./features/keyControlSlice";
 import renderMenuReducer from "./features/renderMenuSlice";
 import optionsReducer from "./features/optionsSlice";
+import limitsReducer from "./features/limitsSlice";
 
 export const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
         keyControl: keyControlReducer,
         renderMenu: renderMenuReducer,
         options: optionsReducer,
+        limits: limitsReducer,
     },
 });
 
