@@ -84,7 +84,9 @@ export const anglesSlice = createSlice({
             }
         },
         zeroAllAngles: (state) => {
-            state = initialState;
+            for (let i = 0; i < 21; i++) {
+                state[`angle${i}` as keyof anglesState] = 0;
+            }
         },
     },
 });

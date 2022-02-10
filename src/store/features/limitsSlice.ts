@@ -66,7 +66,9 @@ export const limitsSlice = createSlice({
             }
         },
         resetLimits: (state) => {
-            state = initialState;
+            for (let i = 0; i < 21; i++) {
+                state[`angle${i}` as keyof limitsState] = [-360, 360];
+            }
         },
     },
 });
