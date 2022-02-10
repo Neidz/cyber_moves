@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { resetLimits } from "../store/features/limitsSlice";
 import { changeLimitsOn } from "../store/features/optionsSlice";
 import { RootState } from "../store/store";
 import "../styles/sections/limitsTab.scss";
@@ -31,6 +32,7 @@ export const LimitsTab = () => {
                 <button onClick={() => dispatch(changeLimitsOn(!limitsOn))}>
                     {limitsOn ? "turn limits off" : "turn limits on"}
                 </button>
+                <button onClick={() => dispatch(resetLimits())}>reset all limits</button>
             </div>
         </div>
     );
