@@ -7,8 +7,16 @@ import { ReactComponent as HomeIcon } from "../assets/icons/home-solid.svg";
 import { ReactComponent as HexapodIcon } from "../assets/icons/hexapodIcon.svg";
 import { NavigateFunction, useNavigate } from "react-router";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { login } from "../api/auth/login";
+import { register } from "../api/auth/register";
+import { userCommandsByType } from "../api/private/userCommandsByType";
+import { allNamesByType } from "../api/public/allNamesByType";
+import { commandByName } from "../api/public/commandByName";
 
 export const Navbar = () => {
+    const { loggedIn, username } = useSelector((state: RootState) => state.user);
     const navigate: NavigateFunction = useNavigate();
     useLocalStorage();
 
@@ -20,6 +28,7 @@ export const Navbar = () => {
             <RobotArm3dof onClick={() => navigate("/robotArm3dof")} />
             <RobotArm4dof onClick={() => navigate("/robotArm4dof")} />
             <HexapodIcon onClick={() => navigate("/hexapodRobot")} />
+            <div className="user">{loggedIn ? <h2>{username}</h2> : <button>log in</button>}</div>
         </div>
     );
 };
