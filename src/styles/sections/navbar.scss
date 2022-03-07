@@ -11,10 +11,4 @@
     svg {
         @include mixins.icon;
     }
-    .user {
-        margin-left: auto;
-        button {
-            @include mixins.button1;
-        }
-    }
 }

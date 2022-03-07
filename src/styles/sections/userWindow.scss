@@ -1,0 +1,49 @@
+@use "../mixins.scss";
+@use "../mixinsAnimations.scss";
+
+.userWindow {
+    position: relative;
+    margin-left: auto;
+    button {
+        @include mixins.button1;
+    }
+    .loginWindow {
+        @include mixinsAnimations.showUp;
+        input {
+            @include mixins.input1;
+        }
+        h4 {
+            margin-top: 0.5rem;
+        }
+        .loginSubmitButton {
+            margin-top: 1rem;
+            @include mixins.button1;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 10;
+        right: 0.5rem;
+        top: calc(var(--navbarHeight) + 0.5rem);
+        min-width: 15rem;
+        position: absolute;
+        background-color: var(--menuBackground);
+        border-radius: 1rem;
+        padding: 1rem;
+        p {
+            margin-top: 0.5rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid grey;
+            &:hover {
+                cursor: pointer;
+                color: var(--darkHover);
+            }
+        }
+        .loginWindowMessage {
+            color: rgb(255, 30, 0);
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+}
