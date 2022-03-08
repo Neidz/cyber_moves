@@ -4,6 +4,7 @@ import { RootState } from "../store/store";
 import { useState } from "react";
 import { register } from "../api/auth/register";
 import { login } from "../api/auth/login";
+import { updateStorage } from "../utils/updateStorage";
 
 export const UserWindow = () => {
     const [loginWindow, setLoginWindow] = useState<boolean>(false);
@@ -20,27 +21,26 @@ export const UserWindow = () => {
         if (formLogin !== "" && formPassword !== "") {
             setMessage(true);
             setMessageContent("loading");
+            // signup
             if (signupOption) {
                 const res = await register(formLogin, formPassword);
                 setMessage(false);
-                // temp
-                console.log(res);
                 if (res === undefined) {
                     setMessage(true);
                     setMessageContent("username already taken");
                 } else {
                     setMessage(false);
                 }
+                // login
             } else {
                 const res = await login(formLogin, formPassword);
                 setMessage(false);
-                // temp
-                console.log(res);
                 if (res === undefined) {
                     setMessage(true);
                     setMessageContent("wrong credentials");
                 } else {
                     setMessage(false);
+                    res.data.accessToken && updateStorage("token", res.data.accessToken);
                 }
             }
         }
