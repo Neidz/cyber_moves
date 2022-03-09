@@ -8,6 +8,7 @@ import renderMenuReducer from "./features/renderMenuSlice";
 import optionsReducer from "./features/optionsSlice";
 import limitsReducer from "./features/limitsSlice";
 import userReducer from "./features/userSlice";
+import browseCommands from "./features/browseCommandsSlice";
 
 export const store = configureStore({
     reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
         options: optionsReducer,
         limits: limitsReducer,
         user: userReducer,
+        browseCommands: browseCommands,
     },
 });
 

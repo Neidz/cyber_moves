@@ -4,6 +4,8 @@ interface userState {
     loggedIn: boolean;
     username: string;
     isHacker: boolean;
+    // this is not used as a proof that someone is admin, I might use it to show some icons or options in the future
+    // actual admin authentication will take place on the backend
     isAdmin: boolean;
     exp: number;
 }
@@ -35,10 +37,18 @@ export const userSlice = createSlice({
         changeIsAdmin: (state, action: PayloadAction<boolean>) => {
             state.isAdmin = action.payload;
         },
+        changeToDefault: (state) => {
+            state.exp = 0;
+            state.isAdmin = false;
+            state.isHacker = false;
+            state.loggedIn = false;
+            state.username = "";
+        },
     },
 });
 
-export const { changeLoggedIn, changeUsername, changeExp, changeIsAdmin, changeIsHacker } = userSlice.actions;
+export const { changeLoggedIn, changeUsername, changeExp, changeIsAdmin, changeIsHacker, changeToDefault } =
+    userSlice.actions;
 
 export default userSlice.reducer;
 

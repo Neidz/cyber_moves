@@ -7,7 +7,15 @@
     button {
         @include mixins.button1;
     }
-    .loginWindow {
+    .username {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        padding: 0;
+        font-size: 1rem;
+        color: var(--darkText);
+    }
+    .loginWindow,
+    .userOptionsWindow {
         @include mixinsAnimations.showUp;
         input {
             @include mixins.input1;

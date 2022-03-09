@@ -26,14 +26,18 @@ interface commandState {
 
 interface commandsState {
     commands: Array<commandState>;
-    createdBy: string;
-    category: string;
+    category: string[];
+    robotType: string;
+    name: string;
+    username: string;
 }
 
 const initialState: commandsState = {
     commands: [],
-    createdBy: "anon",
-    category: "unkown",
+    category: [],
+    robotType: "",
+    name: "",
+    username: "",
 };
 
 export const commandsSlice = createSlice({
@@ -56,16 +60,31 @@ export const commandsSlice = createSlice({
         removeLastCommand: (state) => {
             state.commands.pop();
         },
-        editUser: (state, action: PayloadAction<string>) => {
-            state.createdBy = action.payload;
+        editCommandUsername: (state, action: PayloadAction<string>) => {
+            state.username = action.payload;
         },
-        editCategory: (state, action: PayloadAction<string>) => {
+        editCommandCategory: (state, action: PayloadAction<string[]>) => {
             state.category = action.payload;
+        },
+        editCommandName: (state, action: PayloadAction<string>) => {
+            state.name = action.payload;
+        },
+        editCommandRobotType: (state, action: PayloadAction<string>) => {
+            state.robotType = action.payload;
         },
     },
 });
 
-export const { newCommand, editCommand, clearCommands, removeLastCommand, editUser, editCategory } = commandsSlice.actions;
+export const {
+    newCommand,
+    editCommand,
+    clearCommands,
+    removeLastCommand,
+    editCommandUsername,
+    editCommandCategory,
+    editCommandName,
+    editCommandRobotType,
+} = commandsSlice.actions;
 
 export default commandsSlice.reducer;
 export type { commandState };
