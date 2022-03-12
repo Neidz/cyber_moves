@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { OrbitControls } from "@react-three/drei";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { SimpleAxis } from "../3dComponents/simpleAxis";
 import { Plane } from "../3dComponents/plane";
@@ -10,6 +10,7 @@ import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useCleanUp } from "../hooks/useCleanUp";
 import { OnScreenArrows } from "../components/onScreenArrows";
+import { editCommandRobotType } from "../store/features/commandsSlice";
 
 export const OneAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
@@ -20,6 +21,12 @@ export const OneAxis = () => {
     const changeTarget = useArrows();
     useAmountOfAxis(1);
     useCleanUp();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(editCommandRobotType("oneAxis"));
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <div className="mainContainer">

@@ -24,10 +24,12 @@ interface commandState {
     angle20?: number;
 }
 
+export type possibleRobotTypes = "hexapod" | "robotArm3dof" | "robotArm4dof" | "oneAxis" | "multipleAxis" | "";
+
 interface commandsState {
     commands: Array<commandState>;
     category: string[];
-    robotType: string;
+    robotType: possibleRobotTypes;
     name: string;
     username: string;
 }
@@ -69,7 +71,7 @@ export const commandsSlice = createSlice({
         editCommandName: (state, action: PayloadAction<string>) => {
             state.name = action.payload;
         },
-        editCommandRobotType: (state, action: PayloadAction<string>) => {
+        editCommandRobotType: (state, action: PayloadAction<possibleRobotTypes>) => {
             state.robotType = action.payload;
         },
     },

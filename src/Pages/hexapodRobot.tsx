@@ -1,7 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { useSelector } from "react-redux";
+import { Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { HexapodRobot } from "../3dComponents/hexapodRobot";
 import { Plane } from "../3dComponents/plane";
 import { OnScreenArrows } from "../components/onScreenArrows";
@@ -9,6 +9,7 @@ import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
 import { useArrows } from "../hooks/useArrows";
 import { useCleanUp } from "../hooks/useCleanUp";
+import { editCommandRobotType } from "../store/features/commandsSlice";
 import { RootState } from "../store/store";
 
 export const HexapodRobotPage = () => {
@@ -18,6 +19,12 @@ export const HexapodRobotPage = () => {
     const changeTarget = useArrows();
     useAmountOfAxis(18);
     useCleanUp();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(editCommandRobotType("hexapod"));
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <div className="mainContainer">
