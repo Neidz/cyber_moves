@@ -45,12 +45,12 @@ export const UserWindow = () => {
                 } else {
                     setMessage(false);
                     setLoginWindow(false);
-                    res.data.accessToken && updateStorage("token", res.data.accessToken);
+                    res.accessToken && updateStorage("token", res.accessToken);
 
                     dispatch(changeLoggedIn(true));
-                    dispatch(changeUsername(res.data.username));
-                    dispatch(changeIsHacker(res.data.isHacker));
-                    dispatch(changeIsAdmin(res.data.isAdmin));
+                    dispatch(changeUsername(res.username));
+                    dispatch(changeIsHacker(res.isHacker));
+                    dispatch(changeIsAdmin(res.isAdmin));
                 }
             }
         }

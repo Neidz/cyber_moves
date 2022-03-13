@@ -8,6 +8,7 @@ export const registerEndpoint = `${baseUrl}/auth/register`;
 export const newCommandEndpoint = `${baseUrl}/newCommand`;
 export const userCommandsEndpoint = `${baseUrl}/userCommands`;
 export const userCommandsByTypeEndpoint = `${baseUrl}/userCommands?robotType=`;
+export const userNamesByTypeEndpoint = `${baseUrl}/userNamesByType?robotType=`;
 
 // public
 export const commandByNameEndpoint = `${baseUrl}/public/commandByName?name=`;
