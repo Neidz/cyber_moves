@@ -43,4 +43,17 @@
             }
         }
     }
+    .commandAdding {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        input {
+            @include mixins.input1;
+        }
+        button {
+            display: flex;
+            align-self: center;
+        }
+    }
 }

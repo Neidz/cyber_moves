@@ -27,7 +27,7 @@ interface commandState {
 export type possibleRobotTypes = "hexapod" | "robotArm3dof" | "robotArm4dof" | "oneAxis" | "multipleAxis" | "";
 
 interface commandsState {
-    commands: Array<commandState>;
+    commands: commandState[];
     category: string[];
     robotType: possibleRobotTypes;
     name: string;
@@ -56,6 +56,9 @@ export const commandsSlice = createSlice({
                 state.commands[action.payload.commandIndex] = action.payload.newCommand;
             }
         },
+        loadCommands: (state, action: PayloadAction<commandState[]>) => {
+            state.commands = action.payload;
+        },
         clearCommands: (state) => {
             state.commands = [];
         },
@@ -80,6 +83,7 @@ export const commandsSlice = createSlice({
 export const {
     newCommand,
     editCommand,
+    loadCommands,
     clearCommands,
     removeLastCommand,
     editCommandUsername,

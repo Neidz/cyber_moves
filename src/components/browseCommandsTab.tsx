@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userNamesByType } from "../api/private/userNamesByType";
 import { allNamesByType } from "../api/public/allNamesByType";
 import { commandByName } from "../api/public/commandByName";
+import { loadCommands } from "../store/features/commandsSlice";
 import { RootState } from "../store/store";
 import "../styles/sections/browseCommandsTab.scss";
 
@@ -14,16 +15,19 @@ export const BrowseCommandsTab = () => {
     const { robotType } = useSelector((state: RootState) => state.commands);
     const [listOfNames, setListOfNames] = useState<listOfNamesEntry[]>([]);
     const [userCommands, setUserCommands] = useState<boolean>(true);
+    const dispatch = useDispatch();
 
     const fetchNames = async () => {
         const data = userCommands ? userNamesByType(robotType) : allNamesByType(robotType);
-        data && setListOfNames(await data);
+        (await data) && setListOfNames(await data);
     };
 
     const loadCommand = async (name: string) => {
         const data = commandByName(name);
-        if ((await data) !== undefined) {
-            console.log(data);
+        // every object in database has _id property and it has to filtered out
+        if (data) {
+            const listOfCommands = (await data).commands.map(({ _id, ...rest }) => rest);
+            listOfCommands && dispatch(loadCommands(listOfCommands));
         }
     };
 
@@ -38,12 +42,13 @@ export const BrowseCommandsTab = () => {
             <button onClick={() => setUserCommands(!userCommands)}>
                 {userCommands ? "show community commands" : "show my commands"}
             </button>
+            <h3>click on command name to load it, it will appear in commands tab</h3>
             {listOfNames &&
                 listOfNames.map((entry, key) => {
                     return (
-                        <h4 key={key} onClick={() => loadCommand(entry.name)}>
+                        <button key={key} onClick={() => loadCommand(entry.name)}>
                             {entry.name}
-                        </h4>
+                        </button>
                     );
                 })}
         </div>

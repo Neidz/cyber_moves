@@ -39,6 +39,7 @@ export const UserWindow = () => {
             } else {
                 const res = await login(formLogin, formPassword);
                 setMessage(false);
+                console.log(res);
                 if (res === undefined) {
                     setMessage(true);
                     setMessageContent("wrong credentials");
