@@ -28,7 +28,7 @@ export const UserWindow = () => {
             if (signupOption) {
                 const res = await register(formLogin, formPassword);
                 setMessage(false);
-                if (res === undefined) {
+                if (!res) {
                     setMessage(true);
                     setMessageContent("username already taken");
                 } else {
@@ -39,14 +39,13 @@ export const UserWindow = () => {
             } else {
                 const res = await login(formLogin, formPassword);
                 setMessage(false);
-                console.log(res);
-                if (res === undefined) {
+                if (!res) {
                     setMessage(true);
                     setMessageContent("wrong credentials");
                 } else {
                     setMessage(false);
                     setLoginWindow(false);
-                    res.accessToken && updateStorage("token", res.accessToken);
+                    res && updateStorage("token", res.accessToken);
 
                     dispatch(changeLoggedIn(true));
                     dispatch(changeUsername(res.username));

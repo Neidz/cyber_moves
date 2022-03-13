@@ -10,18 +10,23 @@ export interface newCommandData {
 }
 
 export const newCommand = async (newCommandData: newCommandData): Promise<any> => {
-    const token = localStorage.getItem("token");
-    const res = await axios.post(
-        newCommandEndpoint,
-        {
-            name: newCommandData.name,
-            commands: newCommandData.commands,
-            robotType: newCommandData.robotType,
-            category: newCommandData.category,
-        },
-        {
-            headers: { token: `Bearer ${token}` },
-        }
-    );
-    return res.data;
+    try {
+        const token = localStorage.getItem("token");
+        const res = await axios.post(
+            newCommandEndpoint,
+            {
+                name: newCommandData.name,
+                commands: newCommandData.commands,
+                robotType: newCommandData.robotType,
+                category: newCommandData.category,
+            },
+            {
+                headers: { token: `Bearer ${token}` },
+            }
+        );
+        return res.data;
+    } catch (e) {
+        console.log(e);
+        return null;
+    }
 };

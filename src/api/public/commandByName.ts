@@ -16,7 +16,12 @@ export interface commandResponse {
     commands: responseCommands[];
 }
 
-export const commandByName = async (commandName: string): Promise<commandResponse> => {
-    const res = await axios.get(`${commandByNameEndpoint}${commandName}`);
-    return res.data;
+export const commandByName = async (commandName: string): Promise<commandResponse | null> => {
+    try {
+        const res = await axios.get(`${commandByNameEndpoint}${commandName}`);
+        return res.data;
+    } catch (e) {
+        console.log(e);
+        return null;
+    }
 };

@@ -64,7 +64,7 @@ export const CommandsTab = () => {
             <div className="commandAdding">
                 <input type="text" onChange={(e) => setCommandName(e.target.value)} value={commandName} />
                 <button onClick={() => saveCommand()}>save command</button>
-                {isError && <p>{error}</p>}
+                {isError && <p className="error">{error}</p>}
             </div>
         </div>
     );

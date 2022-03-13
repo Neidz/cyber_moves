@@ -8,14 +8,15 @@ interface loginResponse {
     accessToken: string;
 }
 
-export const login = async (formLogin: string, formPassword: string): Promise<loginResponse> => {
+export const login = async (formLogin: string, formPassword: string): Promise<loginResponse | null> => {
     try {
         const res = await axios.post(loginEndpoint, {
             username: formLogin,
             password: formPassword,
         });
         return res.data;
-    } catch {
-        throw new Error("error");
+    } catch (e) {
+        console.log(e);
+        return null;
     }
 };

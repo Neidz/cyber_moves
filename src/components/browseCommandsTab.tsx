@@ -18,15 +18,15 @@ export const BrowseCommandsTab = () => {
     const dispatch = useDispatch();
 
     const fetchNames = async () => {
-        const data = userCommands ? userNamesByType(robotType) : allNamesByType(robotType);
-        (await data) && setListOfNames(await data);
+        const data = userCommands ? await userNamesByType(robotType) : await allNamesByType(robotType);
+        data && setListOfNames(data);
     };
 
     const loadCommand = async (name: string) => {
-        const data = commandByName(name);
+        const data = await commandByName(name);
         // every object in database has _id property and it has to filtered out
         if (data) {
-            const listOfCommands = (await data).commands.map(({ _id, ...rest }) => rest);
+            const listOfCommands = data.commands.map(({ _id, ...rest }) => rest);
             listOfCommands && dispatch(loadCommands(listOfCommands));
         }
     };
