@@ -13,8 +13,9 @@ interface listOfNamesEntry {
 
 export const BrowseCommandsTab = () => {
     const { robotType } = useSelector((state: RootState) => state.commands);
+    const { username } = useSelector((state: RootState) => state.user);
     const [listOfNames, setListOfNames] = useState<listOfNamesEntry[]>([]);
-    const [userCommands, setUserCommands] = useState<boolean>(true);
+    const [userCommands, setUserCommands] = useState<boolean>(false);
     const dispatch = useDispatch();
 
     const fetchNames = async () => {
@@ -39,9 +40,11 @@ export const BrowseCommandsTab = () => {
     return (
         <div className="browseCommandsTab">
             <h2>List of available commands</h2>
-            <button onClick={() => setUserCommands(!userCommands)}>
-                {userCommands ? "show community commands" : "show my commands"}
-            </button>
+            {username && (
+                <button onClick={() => setUserCommands(!userCommands)}>
+                    {userCommands ? "show community commands" : "show my commands"}
+                </button>
+            )}
             <h3>click on command name to load it, it will appear in commands tab</h3>
             {listOfNames &&
                 listOfNames.map((entry, key) => {
