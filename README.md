@@ -2,12 +2,10 @@
 https://cybermoves.netlify.app/ </br>
 
 <h2 style="margin-bottom:0">About project</h2>
-<hr style="margin-top:0">
 Website allowing user to create combination of commands that are displayed in real time on 3d model using r3f (library based on three.js). 
 <br/><br/>
 <p>You can use website to create commands for your robot but you don't have to copy them manually (if you want to, you can), for that I'm providing few public endpoints so you can fetch that data directly on your robot! If you want to know how to do that head down to <b>Endpoints</b>.</p>
 <h2 style="margin-bottom:0">Public endpoints</h2>
-<hr style="margin-top:0">
 
 <h4>Get command by name</h4>
 
