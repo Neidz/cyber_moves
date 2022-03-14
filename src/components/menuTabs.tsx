@@ -3,7 +3,7 @@ import { changeTab, currentTab } from "../store/features/renderMenuSlice";
 import "../styles/sections/menuTabs.scss";
 
 export const MenuTabs = () => {
-    const tabs: currentTab[] = ["angles", "limits", "commands", "options", "visuals", "how it works"];
+    const tabs: currentTab[] = ["angles", "limits", "commands", "browse commands", "options", "visuals", "how it works"];
     const dispatch = useDispatch();
     const handleTabChange = (tab: currentTab) => {
         dispatch(changeTab(tab));

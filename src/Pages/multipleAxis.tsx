@@ -1,7 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { useSelector } from "react-redux";
+import { Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { OnScreenArrows } from "../components/onScreenArrows";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
@@ -14,6 +14,7 @@ import { referenceColorsState } from "../store/features/renderVisualsSlice";
 import { RootState } from "../store/store";
 import { arrayFromNumber } from "../utils/arrayFromNumber";
 import { calculateLayout } from "../utils/calculateLayout";
+import { editCommandRobotType } from "../store/features/commandsSlice";
 
 export const MultipleAxis = () => {
     const angles = useSelector((state: RootState) => state.angles);
@@ -24,6 +25,12 @@ export const MultipleAxis = () => {
     const changeTarget = useArrows();
     useAmountOfAxis(9);
     useCleanUp();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(editCommandRobotType("multipleAxis"));
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <div className="mainContainer">

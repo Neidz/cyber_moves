@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import "../styles/sections/renderMenu.scss";
 import { AngleInputsTab } from "./angleInputsTab";
+import { BrowseCommandsTab } from "./browseCommandsTab";
 import { CommandsTab } from "./commandsTab";
 import { HowItWorksTab } from "./howItWorksTab";
 import { LimitsTab } from "./limitsTab";
@@ -26,6 +27,7 @@ export const RenderMenu = () => {
                 {currentTab === "visuals" && <VisualsTab />}
                 {currentTab === "how it works" && <HowItWorksTab />}
                 {currentTab === "limits" && <LimitsTab />}
+                {currentTab === "browse commands" && <BrowseCommandsTab />}
             </div>
         );
     }

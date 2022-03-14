@@ -65,7 +65,18 @@ export const HowItWorksTab = () => {
                             of that element on the model and angle input in "angles" tab <br />
                             <b>execute commands</b> - starts sequence of moves created with commands
                             <br />
-                            <b>clipboard icon</b> - copies current commands to clipboard
+                            <b>clipboard icon</b> - copies current commands to clipboard <br />
+                            <b>save command</b> - saves command with name provided in input next to it with added username_
+                            at the begging, so it's username_name. Saved commands can be loaded in browse commands tab
+                        </p>
+                    </li>
+                    <li>
+                        <h3>browse commands</h3>
+                        <p>
+                            Displays list of available commands. After clicking on name of choosen command it will be loaded
+                            in commands tab where it can be executed <br />
+                            <b>show community commands/show my commands</b> - switches between commands created by user and
+                            commands created by community
                         </p>
                     </li>
                     <li>

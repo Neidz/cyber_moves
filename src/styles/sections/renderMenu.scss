@@ -15,7 +15,7 @@
     flex-direction: column;
     position: absolute;
     overflow-y: auto;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--menuBackground);
     border-left: 1px solid;
     border-image: linear-gradient(rgba(0, 0, 0, 0) 0%, var(--darkBorder) 10%, var(--darkBorder) 90%, rgba(255, 0, 0, 0) 100%)
         1 100%;

@@ -1,7 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { useSelector } from "react-redux";
+import { Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { OnScreenArrows } from "../components/onScreenArrows";
 import { RenderMenu } from "../components/renderMenu";
 import { useAmountOfAxis } from "../hooks/useAmountOfAxis";
@@ -10,6 +10,7 @@ import { useCleanUp } from "../hooks/useCleanUp";
 import { Plane } from "../3dComponents/plane";
 import { RobotArm } from "../3dComponents/robotArm";
 import { RootState } from "../store/store";
+import { editCommandRobotType } from "../store/features/commandsSlice";
 
 // the same model as RobotArm3dof but last arm is cut and model reused
 export const RobotArm3dof = () => {
@@ -21,6 +22,12 @@ export const RobotArm3dof = () => {
     const changeTarget = useArrows();
     useAmountOfAxis(3);
     useCleanUp();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(editCommandRobotType("robotArm3dof"));
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <div className="mainContainer">

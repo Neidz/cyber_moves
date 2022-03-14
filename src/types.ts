@@ -21,3 +21,10 @@ export interface modelRef {
         };
     };
 }
+
+export interface decodedTokenType {
+    isHacker: boolean;
+    isAdmin: boolean;
+    username: string;
+    exp: number;
+}

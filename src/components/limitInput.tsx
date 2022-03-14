@@ -13,6 +13,7 @@ interface limitInputProps {
 export const LimitInput = (props: limitInputProps) => {
     const dispatch = useDispatch();
     const [tempValue, setTempValue] = useState<string>("");
+    console.log(useState);
     const { referenceColors } = useSelector((state: RootState) => state.renderVisuals);
     const { limits } = useSelector((state: RootState) => state);
     const limit =

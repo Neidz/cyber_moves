@@ -24,16 +24,22 @@ interface commandState {
     angle20?: number;
 }
 
+export type possibleRobotTypes = "hexapod" | "robotArm3dof" | "robotArm4dof" | "oneAxis" | "multipleAxis" | "";
+
 interface commandsState {
-    commands: Array<commandState>;
-    createdBy: string;
-    category: string;
+    commands: commandState[];
+    category: string[];
+    robotType: possibleRobotTypes;
+    name: string;
+    username: string;
 }
 
 const initialState: commandsState = {
     commands: [],
-    createdBy: "anon",
-    category: "unkown",
+    category: [],
+    robotType: "",
+    name: "",
+    username: "",
 };
 
 export const commandsSlice = createSlice({
@@ -50,22 +56,41 @@ export const commandsSlice = createSlice({
                 state.commands[action.payload.commandIndex] = action.payload.newCommand;
             }
         },
+        loadCommands: (state, action: PayloadAction<commandState[]>) => {
+            state.commands = action.payload;
+        },
         clearCommands: (state) => {
             state.commands = [];
         },
         removeLastCommand: (state) => {
             state.commands.pop();
         },
-        editUser: (state, action: PayloadAction<string>) => {
-            state.createdBy = action.payload;
+        editCommandUsername: (state, action: PayloadAction<string>) => {
+            state.username = action.payload;
         },
-        editCategory: (state, action: PayloadAction<string>) => {
+        editCommandCategory: (state, action: PayloadAction<string[]>) => {
             state.category = action.payload;
+        },
+        editCommandName: (state, action: PayloadAction<string>) => {
+            state.name = action.payload;
+        },
+        editCommandRobotType: (state, action: PayloadAction<possibleRobotTypes>) => {
+            state.robotType = action.payload;
         },
     },
 });
 
-export const { newCommand, editCommand, clearCommands, removeLastCommand, editUser, editCategory } = commandsSlice.actions;
+export const {
+    newCommand,
+    editCommand,
+    loadCommands,
+    clearCommands,
+    removeLastCommand,
+    editCommandUsername,
+    editCommandCategory,
+    editCommandName,
+    editCommandRobotType,
+} = commandsSlice.actions;
 
 export default commandsSlice.reducer;
 export type { commandState };
