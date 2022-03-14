@@ -1,15 +1,92 @@
-Live at: </br>
+<h1 style="margin-bottom:0">Live at:</h1>
 https://cybermoves.netlify.app/ </br>
 
-Still in progress.
+<h2 style="margin-bottom:0">About project</h2>
+<hr style="margin-top:0">
+Website allowing user to create combination of commands that are displayed in real time on 3d model using r3f (library based on three.js). 
+<br/><br/>
+<p>You can use website to create commands for your robot but you don't have to copy them manually (if you want to, you can), for that I'm providing few public endpoints so you can fetch that data directly on your robot! If you want to know how to do that head down to <b>Endpoints</b>.</p>
+<h2 style="margin-bottom:0">Public endpoints</h2>
+<hr style="margin-top:0">
 
-Website allowing user to create combination of moves that are displayed in real time on 3d model using three.js (react three fiber). In the future there will be a lot of different models for popular types of robots (robo-spider with 4/6 legs, robo-dog, pick and place machine, rc car and a lot more).
+<h4>Get command by name</h4>
 
-For now commands can only be practically used by copying to the clipboard in form of list of objects and manually placing them in your code but in the future there will be API allowing users to create/view/share commands that will be stored in database and I'll provide open endpoints that you will be able to use to fetch those commands without manually copying.
+<p>You can get your command by fetching data from <br>
+<a>https://cybermoves.herokuapp.com/api/public/commandByName?name=NAME</a> <br>
+where you have to replace NAME with name of your command (remember that command is always named username_nameOfTheComand, so if your username is tom and you named command mySuperCommand then it's name is tom_mySuperCommand</p>
+
+<b>Reponse:</b>
 
 <pre>
-const x = {
-    x: test;
-    y: test;
+{
+    "name": "username_nameOfTheCommand",
+    "username": "test",
+    "commands": [
+        {
+            "angle1": 100,
+            "angle2": 200,
+            "angle3": 300
+        },
+        {
+            "angle1": 150,
+            "angle2": 250,
+            "angle3": 350
+        }
+    ],
+    "category": ["someCategory", "differentCategory"],
+    "robotType": "hexapod"
+}
+</pre>
+
+<b>Axios example:</b>
+
+<pre>
+try {
+    const res = await axios.get(https://cybermoves.herokuapp.com/api/public/commandByName?name=testName);
+    console.log(res.data);
+} catch (e) {
+    console.log(e);
+}
+</pre>
+<h4>Get all names for robot type</h4>
+
+<p>You can get names of all available commands for choosen robot type from<br>
+<a>https://cybermoves.herokuapp.com/api/public/allNamesByType?robotType=ROBOTTYPE</a> <br>
+where you have to replace ROBOTYPE with type of robot.</p>
+
+<b>Currently available types of robots</b>
+
+<ul>
+<li>hexapod</li>
+<li>robotArm3dof</li>
+<li>robotArm4dof</li>
+<li>oneAxis</li>
+<li>multipleAxis</li>
+</ul>
+
+<b>Reponse:</b>
+
+<pre>
+[
+    {
+        "name": "nameOfFirstCommand"
+    },
+    {
+        "name": "nameOfSecondCommand"
+    },
+    {
+        "name": "nameOfThirdCommand"
+    }
+]
+</pre>
+
+<b>Axios example:</b>
+
+<pre>
+try {
+    const res = await axios.get(https://cybermoves.herokuapp.com/api/public/allNamesByType?robotType=hexapod);
+    console.log(res.data);
+} catch (e) {
+    console.log(e);
 }
 </pre>

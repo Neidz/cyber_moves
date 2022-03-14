@@ -25,10 +25,8 @@ export const BrowseCommandsTab = () => {
 
     const loadCommand = async (name: string) => {
         const data = await commandByName(name);
-        // every object in database has _id property and it has to filtered out
         if (data) {
-            const listOfCommands = data.commands.map(({ _id, ...rest }) => rest);
-            listOfCommands && dispatch(loadCommands(listOfCommands));
+            data.commands && dispatch(loadCommands(data.commands));
         }
     };
 
