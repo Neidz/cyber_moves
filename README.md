@@ -7,7 +7,7 @@ Website allowing user to create combination of commands that are displayed in re
 <p>You can use website to create commands for your robot but you don't have to copy them manually (if you want to, you can), for that I'm providing few public endpoints so you can fetch that data directly on your robot! If you want to know how to do that head down to <b>Endpoints</b>.</p>
 <h2 style="margin-bottom:0">Public endpoints</h2>
 
-<h4>Get command by name</h4>
+<h3>Get command by name</h3>
 
 <p>You can get your command by fetching data from <br>
 <a>https://cybermoves.herokuapp.com/api/public/commandByName?name=NAME</a> <br>
@@ -46,7 +46,7 @@ try {
     console.log(e);
 }
 </pre>
-<h4>Get all names for robot type</h4>
+<h3>Get all names for robot type</h3>
 
 <p>You can get names of all available commands for choosen robot type from<br>
 <a>https://cybermoves.herokuapp.com/api/public/allNamesByType?robotType=ROBOTTYPE</a> <br>
